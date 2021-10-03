@@ -1,5 +1,5 @@
 # Garry's Mod Day-Z Gamemode
-Created by ?
+Created by ?  
 Edited by [VanguardianDG](http://github.com/VanguardianDG)
 
 # Install
@@ -16,7 +16,7 @@ Edited by [VanguardianDG](http://github.com/VanguardianDG)
     resource.AddWorkshop("129589968") -- RP_Stalker (Discontinued)
     resource.AddWorkshop("536338229") -- Lite Weapons Pack
     ```
-6. Use this [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2595587443]collection pack[/url] or add them to your own
+6. Use this [collection pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2595587443) or add them to your own
 7. Make a `start.bat` file inside the folder with `srcds.exe` (https://i.imgur.com/ak4nB8g.png)
 8. Paste the following in `start.bat` file
     ```
