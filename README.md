@@ -1,11 +1,11 @@
 # Garry's Mod Day-Z Gamemode
 
-Curious what this gamemode looks like and how it works? Join the public server now!
+Curious what this gamemode looks like and how it works? Join the public server now!  
 Connect IP: 74.91.123.81:27015
 
 ################################################################
 
-Created by ?
+Created by ?  
 Edited by [VanguardianDG](http://github.com/VanguardianDG)
 
 # Join the [Discord](https://discord.gg/FM49YHT6TS) for updates
