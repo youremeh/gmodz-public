@@ -1,4 +1,10 @@
 # Garry's Mod Day-Z Gamemode
+
+Curious what this gamemode looks like and how it works? Join the public server now!  
+Connect IP: 74.91.123.81:27015
+
+################################################################  
+
 Created by ?  
 Edited by [VanguardianDG](http://github.com/VanguardianDG)
 
@@ -8,7 +14,7 @@ Edited by [VanguardianDG](http://github.com/VanguardianDG)
 3. Drag gamemode to `garrysmod\gamemodes\dayz\`
 4. Create `workshop.lua` in `garrysmod\lua\autorun\server\`
 5. Paste the following in `workshop.lua` file
-    ```
+    ```lua
     resource.AddWorkshop("342908364") -- rp_stalker_new
     resource.AddWorkshop("1092128495") -- Rebirth Content 1
     resource.AddWorkshop("165772389") -- rp_stalker Materials Fix
