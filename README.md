@@ -1,12 +1,12 @@
 # Garry's Mod Day-Z Gamemode
 
-Curious what this gamemode looks like and how it works? Join the public server now!  
+Curious what this gamemode looks like and how it works? Join the public server now!
 Connect IP: 74.91.123.81:27015
 
-################################################################  
+################################################################
 
-Created by ?  
-Edited by [VanguardianDG](http://github.com/VanguardianDG)  
+Created by ?
+Edited by [VanguardianDG](http://github.com/VanguardianDG)
 
 # Join the [Discord](https://discord.gg/FM49YHT6TS) for updates
 
@@ -25,8 +25,12 @@ Edited by [VanguardianDG](http://github.com/VanguardianDG)
     resource.AddWorkshop("536338229") -- Lite Weapons Pack
     ```
 6. Use this [collection pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2595587443) or add them to your own
-7. Make a `start.bat` file inside the folder with `srcds.exe` (https://i.imgur.com/ak4nB8g.png)
-8. Paste the following in `start.bat` file
+7. Goto your `server.cfg` file and add the following
+    ```
+    sv_defaultdeployspeed 1
+    ```
+8. Make a `start.bat` file inside the folder with `srcds.exe` (https://i.imgur.com/ak4nB8g.png)
+9. Paste the following in `start.bat` file
     ```
     @echo off
     cls
@@ -37,5 +41,5 @@ Edited by [VanguardianDG](http://github.com/VanguardianDG)
     echo (%time%) WARNING: srcds closed or crashed, restarting.
     goto srcds
     ```
-9. If you make your own collection, replace the `+host_workshop_collection ###` with your own numbers
-10. Start Server
+10. If you make your own collection, replace the `+host_workshop_collection ###` with your own numbers
+11. Start Server
