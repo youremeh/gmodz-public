@@ -20,3 +20,6 @@ include('scripts/shared/shar_safezone.lua')
 include('scripts/shared/shar_crafts.lua')
 
 include('airdrop/client.lua')
+
+include("scripts/shared/shar_locale.lua")
+include("scripts/shared/translations/en.lua")

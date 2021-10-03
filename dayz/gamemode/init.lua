@@ -30,19 +30,30 @@ include('scripts/server/killtimer.lua')
 
 AddCSLuaFile("scripts/shared/shar_items.lua")
 include('scripts/shared/shar_items.lua')
+
 AddCSLuaFile("scripts/shared/shar_shops.lua")
 include('scripts/shared/shar_shops.lua')
+
 AddCSLuaFile("scripts/shared/shar_pmodels.lua")
 include('scripts/shared/shar_pmodels.lua')
+
 AddCSLuaFile("scripts/shared/shar_safezone.lua")
 include('scripts/shared/shar_safezone.lua')
+
 AddCSLuaFile("scripts/shared/shar_skills.lua")
 include('scripts/shared/shar_skills.lua')
+
 AddCSLuaFile("scripts/shared/shar_crafts.lua")
 include('scripts/shared/shar_crafts.lua')
 
-include('airdrop/server.lua')
 AddCSLuaFile('airdrop/client.lua')
+include('airdrop/server.lua')
+
+AddCSLuaFile("scripts/shared/shar_locale.lua")
+include("scripts/shared/shar_locale.lua")
+
+AddCSLuaFile("scripts/shared/translations/en.lua")
+include("scripts/shared/translations/en.lua")
 
 MapIndex = {}
 MapIndex[1] = "rp_stalker_new"

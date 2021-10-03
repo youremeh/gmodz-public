@@ -10,21 +10,21 @@ function genderSelection()
     DFrame_Select_Gender:ShowCloseButton(false)
     DFrame_Select_Gender.Paint = function()
         draw.RoundedBox(0, 0, 0, ScrW(), ScrH(), Color(0, 0, 0, 255))
-        draw.DrawText("Select your Gender", "ScoreboardHeader", ScrW() / 2, ScrH() / 2 - 100, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+        draw.DrawText(_U('selectGender'), "ScoreboardHeader", ScrW() / 2, ScrH() / 2 - 100, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
     end
-    local DButton_MaleSelection = createButton(DFrame_Select_Gender, ScrW() / 2 - 150, ScrH() / 2 - 45, 300, 40, "Male")
+    local DButton_MaleSelection = createButton(DFrame_Select_Gender, ScrW() / 2 - 150, ScrH() / 2 - 45, 300, 40, _U('genderMale'))
     DButton_MaleSelection.DoClick = function()
         DFrame_Select_Gender:Remove()
         DFrame_Select_Gender = nil
         selectCharacter(0)
     end
-    local DButton_FemaleSelection = createButton(DFrame_Select_Gender, ScrW() / 2 - 150, ScrH() / 2 + 5, 300, 40, "Female")
+    local DButton_FemaleSelection = createButton(DFrame_Select_Gender, ScrW() / 2 - 150, ScrH() / 2 + 5, 300, 40, _U('genderFemale'))
     DButton_FemaleSelection.DoClick = function()
         DFrame_Select_Gender:Remove()
         DFrame_Select_Gender = nil
         selectCharacter(1)
     end
-    local DButton_CustomSelection = createButton(DFrame_Select_Gender, ScrW() / 2 - 150, ScrH() / 2 + 55, 300, 40, "Custom")
+    local DButton_CustomSelection = createButton(DFrame_Select_Gender, ScrW() / 2 - 150, ScrH() / 2 + 55, 300, 40, _U('genderCustom'))
     DButton_CustomSelection.DoClick = function()
         DFrame_Select_Gender:Remove()
         DFrame_Select_Gender = nil
@@ -48,9 +48,9 @@ function selectCharacter(gender)
     DFrame_ModelScreen:SetDraggable(false)
     DFrame_ModelScreen.Paint = function()
         draw.RoundedBox(0, 0, 0, ScrW(), ScrH(), Color(0, 0, 0, 255))
-        draw.DrawText("Select your Character", "ScoreboardHeader", ScrW() / 2, 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
-        draw.DrawText("Body Type", "ScoreboardContent", ScrW() / 2 - 150, ScrH() / 2 - 185, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT)
-        draw.DrawText("Clothes", "ScoreboardContent", ScrW() / 2 - 200, ScrH() / 2 + 25, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT)
+        draw.DrawText(_U('selectModel'), "ScoreboardHeader", ScrW() / 2, 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+        draw.DrawText(_U('selectBodyType'), "ScoreboardContent", ScrW() / 2 - 150, ScrH() / 2 - 185, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT)
+        draw.DrawText(_U('selectClothes'), "ScoreboardContent", ScrW() / 2 - 200, ScrH() / 2 + 25, Color(255, 255, 255, 255), TEXT_ALIGN_RIGHT)
     end
     DFrame_ModelScreen:MakePopup()
     DFrame_ModelScreen:ShowCloseButton(false)
@@ -101,12 +101,12 @@ function selectCharacter(gender)
         end
         DModelPanel_Player:SetModel(tbl[HeadNumber][Clothes])
     end
-    local DButton_Confirm = createButton(DFrame_ModelScreen, ScrW() / 2 - 125, ScrH() / 2 + 200, 250, 50, "Confirm")
+    local DButton_Confirm = createButton(DFrame_ModelScreen, ScrW() / 2 - 125, ScrH() / 2 + 200, 250, 50, _U('selectConfirm'))
     DButton_Confirm.DoClick = function()
         sendCharacterUpdate(HeadNumber, Clothes, gender)
         DFrame_ModelScreen:Remove()
     end
-    local DButton_Back = createButton(DFrame_ModelScreen, ScrW() / 2 - 125, ScrH() / 2 + 250, 250, 50, "Back")
+    local DButton_Back = createButton(DFrame_ModelScreen, ScrW() / 2 - 125, ScrH() / 2 + 250, 250, 50, _U('selectBack'))
     DButton_Back.DoClick = function()
         DFrame_ModelScreen:Remove()
         genderSelection()

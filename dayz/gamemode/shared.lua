@@ -4,6 +4,11 @@ GM.Email = ""
 GM.Website = "https://deceitfulgaming.com"
 
 --[[
+    The language all of the text should be (W.I.P - May not work)
+]]
+Language = 'en'
+
+--[[
     True = Players need to go inside the building to use the shop
     False = Players can press F2 while inside SafeZone to use the shop
 

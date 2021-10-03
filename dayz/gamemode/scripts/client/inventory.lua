@@ -67,7 +67,7 @@ function createInventoryMoney(w, h, money)
         DPanel_Inventory_Item.Mouse = false
         if dPanel_Description and dPanel_Description:IsValid() then dPanel_Description:Remove() end
     end
-    dModelPanel_Item.PaintOver = function() draw.DrawText("$" .. (money or 0), "DebugFixed", 2, 2, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT) end
+    dModelPanel_Item.PaintOver = function() draw.DrawText(_U('moneySign') .. (money or 0), "DebugFixed", 2, 2, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT) end
     return DPanel_Inventory_Item, dModelPanel_Item
 end
 
@@ -106,12 +106,12 @@ function createInventoryButton(w, h, item, quantity, sellshop, sellprice)
         draw.DrawText(DayZItems[item].Name, "DebugFixed", 2, 2, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
         draw.DrawText("x"..quantity, "DebugFixed", 2, 16, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
         if DayZItems[item].Weight and DayZItems[item].Weight > 0 then
-            weightText = ("Weight: "..DayZItems[item].Weight * quantity)
+            weightText = (_U('showWeight')..DayZItems[item].Weight * quantity)
         else
             weightText = ("")
         end
         draw.DrawText(weightText, "DebugFixed", 5, h / 1.2, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
-        if(sellshop) then draw.DrawText("$" .. (sellprice or 0), "DebugFixed", 2, 28, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT) end
+        if(sellshop) then draw.DrawText(_U('moneySign') .. (sellprice or 0), "DebugFixed", 2, 28, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT) end
     end
     return DPanel_Inventory_Item, dModelPanel_Item
 end
@@ -159,7 +159,7 @@ function createBankWeight(frame, x, y, w, h)
     DPanel_BankWeightBar.Paint = function()
         draw.RoundedBox(10, 0, 0, w, h, Color(0, 0, 0, 255))
         draw.RoundedBox(10, 2, 2, (w - 4) * (value / maxVal), h - 4, Color(90, 80, 70, 155))
-        draw.DrawText("Weight: "..value.."/"..maxVal, "DebugFixed", w * 0.5, 2, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+        draw.DrawText(_U('showWeight')..value.."/"..maxVal, "DebugFixed", w * 0.5, 2, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
     end
 end
 
@@ -258,15 +258,15 @@ function Inventory_List(frame)
             dModelPanel_Item.DoClick = function()
                 local itemOptions = DermaMenu()
                 if DayZItems[ItemID].useFunc then
-                    itemOptions:AddOption("Use Item", function() sendMessage("CL_UseItem", ItemID, 1) end)
+                    itemOptions:AddOption(_U('useItem'), function() sendMessage("CL_UseItem", ItemID, 1) end)
                 end
                 if DayZItems[ItemID].Placeable then
-                    itemOptions:AddOption("Place Item", function()
+                    itemOptions:AddOption(_U('placeItem'), function()
                         placeItem(ItemID)
                         if (dFrame_Main_Menu and dFrame_Main_Menu:IsValid()) then dFrame_Main_Menu:Remove() end
                     end)
                 else
-                    itemOptions:AddOption("Drop Item", function()
+                    itemOptions:AddOption(_U('dropItem'), function()
                         if DayZItems[ItemID].ClipSize then
                             amountPopupInventory(ItemID, quantity, "CL_DropItem")
                             if (dFrame_Main_Menu) then dFrame_Main_Menu:Remove() end
@@ -292,7 +292,7 @@ function bankMenu()
     DFrame_BankMenu = vgui.Create("DFrame")
     DFrame_BankMenu:SetSize(800, 500)
     DFrame_BankMenu:MakePopup()
-    DFrame_BankMenu:SetTitle("Stalker Global")
+    DFrame_BankMenu:SetTitle(_U('bankName'))
     DFrame_BankMenu:Center()
     DFrame_BankMenu.Paint = function()
         draw.RoundedBox(10, 0, 0, DFrame_BankMenu:GetWide(), DFrame_BankMenu:GetTall(), Color(0, 0, 0, 180))
@@ -302,14 +302,14 @@ function bankMenu()
     end
     local DLabel_Backpack = vgui.Create("DLabel")
     DLabel_Backpack:SetColor(Color(255, 255, 255, 255))
-    DLabel_Backpack:SetText("Your Backpack")
+    DLabel_Backpack:SetText(_U('yourBackpack'))
     DLabel_Backpack:SetPos(127, 6)
     DLabel_Backpack:SetFont("Trebuchet24")
     DLabel_Backpack:SizeToContents()
     DLabel_Backpack:SetParent(DFrame_BankMenu)
     local DLabel_Bank = vgui.Create("DLabel")
     DLabel_Bank:SetColor(Color(255, 255, 255, 255))
-    DLabel_Bank:SetText("Your Bank")
+    DLabel_Bank:SetText(_U('yourBank'))
     DLabel_Bank:SetPos(547, 6)
     DLabel_Bank:SetFont("Trebuchet24")
     DLabel_Bank:SizeToContents()
@@ -340,7 +340,7 @@ function bankSubMenu()
             local Inventory_Item, dModelPanel_Item = createInventoryButton(125, 125, ItemID, quantity)
             dModelPanel_Item.DoClick = function()
                 D_ItemMENU = DermaMenu()
-                D_ItemMENU:AddOption("Deposit Item", function()
+                D_ItemMENU:AddOption(_U('depositItem'), function()
                     if quantity > 1 then
                         amountPopupInventory(ItemID, quantity, "CL_DepositItem")
                     else
@@ -358,7 +358,7 @@ function bankSubMenu()
             local Inventory_Item, dModelPanel_Item = createInventoryButton(125, 125, ItemID, quantity)
             dModelPanel_Item.DoClick = function()
                 W_ItemMENU = DermaMenu()
-                W_ItemMENU:AddOption("Withdraw Item", function()
+                W_ItemMENU:AddOption(_U('withdrawItem'), function()
                     if quantity > 1 then
                         amountPopupInventory(ItemID, quantity, "CL_WithdrawItem")
                     else
@@ -382,7 +382,7 @@ function amountPopupInventory(item, maxValue, consoleString, widthMoney)
     local DFrame_ItemAmount = vgui.Create("DFrame")
     DFrame_ItemAmount:SetSize(boxWidth, boxHeight)
     DFrame_ItemAmount:Center()
-    DFrame_ItemAmount:SetTitle("Item Amount")
+    DFrame_ItemAmount:SetTitle(_U('itemAmount'))
     DFrame_ItemAmount:MakePopup()
     DFrame_ItemAmount.Paint = function()
         DFrame_ItemAmount:MakePopup()
@@ -401,7 +401,7 @@ function amountPopupInventory(item, maxValue, consoleString, widthMoney)
     DNumSlider_Amount:SetValue(1)
     local buttonWidth, buttonHeight = 200, 35
     local buttonX, buttonY = boxWidth * 0.5 - buttonWidth * 0.5, boxHeight * 0.7
-    local DButton_Confirm = createButton(DFrame_ItemAmount, buttonX, buttonY, buttonWidth, buttonHeight, "Confirm")
+    local DButton_Confirm = createButton(DFrame_ItemAmount, buttonX, buttonY, buttonWidth, buttonHeight, _U('selectConfirm'))
     DButton_Confirm.DoClick = function()
         sendMessage(consoleString, item, DNumSlider_Amount:GetValue())
         DFrame_ItemAmount:Remove()
