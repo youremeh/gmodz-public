@@ -6,7 +6,9 @@ Connect IP: 74.91.123.81:27015
 ################################################################  
 
 Created by ?  
-Edited by [VanguardianDG](http://github.com/VanguardianDG)
+Edited by [VanguardianDG](http://github.com/VanguardianDG)  
+
+# Join the [Discord](https://discord.gg/FM49YHT6TS) for updates
 
 # Install
 1. https://github.com/FredyH/MySQLOO/releases
