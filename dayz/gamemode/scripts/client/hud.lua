@@ -180,9 +180,9 @@ function drawPlayerHUD_New()
     surface.DrawTexturedRectUV(x, y, size, size, 0, 0, 1, 1)
 end
 
-local dzHud = CreateClientConVar("dz_hud", 1, true, false, _U('cvarHud'))
-local dzHelp = CreateClientConVar("dz_showsafezone", 1, true, false, _U('cvarShowSZ'))
-local dzMini = CreateClientConVar("dz_minimap", 0, true, false, _U('cvarMiniMap'))
+local dzHud = CreateClientConVar("dz_hud", 1, true, false, 'Change HUD styles')
+local dzHelp = CreateClientConVar("dz_showsafezone", 1, true, false, 'Show/Hide the SafeZone marker')
+local dzMini = CreateClientConVar("dz_minimap", 0, true, false, 'Show/Hide the Mini-Map (BROKEN)')
 function drawPlayerHud()
     local SW, SH = ScrW(), ScrH()
     local halfSW = SW * 0.5
