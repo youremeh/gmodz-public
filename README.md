@@ -8,10 +8,8 @@ Connect IP: 74.91.123.81:27015
 Created by ?  
 Edited by [VanguardianDG](http://github.com/VanguardianDG)
 
-# Join the [Discord](https://discord.gg/FM49YHT6TS) for updates
-
 # Install
-1. https://github.com/FredyH/MySQLOO/releases
+1. [Download the SQL files](https://github.com/FredyH/MySQLOO/releases) - Both Windows, and Linux **NEED** to do this
 2. Extract to `garrysmod\lua\bin\` folder (create if missing)
 3. Drag gamemode to `garrysmod\gamemodes\dayz\`
 4. Create `workshop.lua` in `garrysmod\lua\autorun\server\`
@@ -29,8 +27,7 @@ Edited by [VanguardianDG](http://github.com/VanguardianDG)
     ```
     sv_defaultdeployspeed 1
     ```
-8. Make a `start.bat` file inside the folder with `srcds.exe` (https://i.imgur.com/ak4nB8g.png)
-9. Paste the following in `start.bat` file
+8. Windows Users - Paste the following into a `.bat` file and makes changes where necessary
     ```
     @echo off
     cls
@@ -41,5 +38,22 @@ Edited by [VanguardianDG](http://github.com/VanguardianDG)
     echo (%time%) WARNING: srcds closed or crashed, restarting.
     goto srcds
     ```
-10. If you make your own collection, replace the `+host_workshop_collection ###` with your own numbers
+9. Linux users - Use the following commands and make changes where necessary
+    ```
+    cd /home/gmodserver
+    sudo ./srcds_run -console -game garrysmod -secure +map rp_stalker_new +maxplayers 32 +gamemode dayz +r_hunkalloclightmaps 0 +host_workshop_collection 2595587443
+    ```
+10. If you made your own collection, replace the `+host_workshop_collection ###` with your own numbers
 11. Start Server
+
+################################################################
+
+# Common Questions
+
+Q: Why do I not see zombies or loot spawns?  
+A: You need to use the proper map `rp_stalker_new` otherwise it will NOT work
+
+Q: Why can I/others walk through props on the map?  
+A: You need to make sure you mount the proper game files in `mount.cfg` (https://i.imgur.com/8LAnlnH.png)
+- If you're on a VDS, you will need to trnasfer these files manually (https://i.imgur.com/WfqetJ1.png)
+- If you bought a Gameserver, you should be fine
