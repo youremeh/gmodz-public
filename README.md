@@ -52,6 +52,13 @@ Edited by [VanguardianDG](http://github.com/VanguardianDG)
 
 Q: Why do I not see zombies or loot spawns?  
 A: You need to use the proper map `rp_stalker_new` otherwise it will NOT work
+- If you want to use other maps, you will need to add spawns for loot and zombies yourself
+1. Go to `dayz/gamemode/init.lua` - Add your map name to the index (don't forget to increase the number)
+2. Use the following command in your games console `geteyepos` and copy the coordinates from the server console
+3. Go to `dayz/gamemode/scripts/shared/shar_safezone.lua` - Add your map name and coordinates for all 3 options
+4. Go to `dayz/gamemode/scripts/server/loot.lua` - Add your map name, and start making loot spawns
+5. Go to `dayz/gamemode/scripts/server/playerdb.lua` - Add your map name, and start making player spawns
+6. Save the files and restart the server or change map once finished to see changes
 
 Q: Why can I/others walk through props on the map?  
 A: You need to make sure you mount the proper game files in `mount.cfg` (https://i.imgur.com/8LAnlnH.png)
