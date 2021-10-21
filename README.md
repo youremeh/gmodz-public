@@ -16,11 +16,10 @@ Edited by [VanguardianDG](http://github.com/VanguardianDG)
 5. Paste the following in `workshop.lua` file
     ```lua
     resource.AddWorkshop("342908364") -- rp_stalker_new
-    resource.AddWorkshop("1092128495") -- Rebirth Content 1
-    resource.AddWorkshop("165772389") -- rp_stalker Materials Fix
-    resource.AddWorkshop("307324474") -- DayZ Content(NOT A GAMEMODE)
-    resource.AddWorkshop("129589968") -- RP_Stalker (Discontinued)
-    resource.AddWorkshop("536338229") -- Lite Weapons Pack
+    resource.AddWorkshop("2633539546") -- [GModZ] Materials
+    resource.AddWorkshop("2633508338") -- [GModZ] Weapons
+    resource.AddWorkshop("2633540974") -- [GModZ] Models
+    resource.AddWorkshop("2633541440") -- [GModZ] Sounds
     ```
 6. Use this [collection pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2595587443) or add them to your own
 7. Goto your `server.cfg` file and add the following
