@@ -53,13 +53,13 @@ function TradeMenu(ply2)
     end
     local DLabel_Offer = vgui.Create("DLabel", DFrame_Trade_Menu)
     DLabel_Offer:SetColor(Color(255, 255, 255, 255))
-    DLabel_Offer:SetText(_U('tradeYourOffer'))
+    DLabel_Offer:SetText("Your Offer")
     DLabel_Offer:SetPos(127, 6)
     DLabel_Offer:SetFont("Trebuchet24")
     DLabel_Offer:SizeToContents()
     local DLabel_Offer2 = vgui.Create("DLabel", DFrame_Trade_Menu)
     DLabel_Offer2:SetColor(Color(255, 255, 255, 255))
-    DLabel_Offer2:SetText(_U('tradeTheirOffer'))
+    DLabel_Offer2:SetText("Their Offer")
     DLabel_Offer2:SetPos(547, 6)
     DLabel_Offer2:SetFont("Trebuchet24")
     DLabel_Offer2:SizeToContents()
@@ -87,12 +87,12 @@ function TradeMenu(ply2)
     DPanelList_PLAYER_2_Contents:EnableHorizontal(3)
     DPanelList_PLAYER_2_Contents:EnableVerticalScrollbar(true)
     DPanelList_PLAYER_2_Contents.Paint = function() draw.RoundedBox(10, 0, 0, DPanelList_Inv:GetWide(), DPanelList_Inv:GetTall(), Color(50, 50, 50, 50)) end
-    local DButton_Accept = createButton(DFrame_Trade_Menu, width * 0.5 - 50, height * 0.3, 100, 30, _U('selectConfirm'))
+    local DButton_Accept = createButton(DFrame_Trade_Menu, width * 0.5 - 50, height * 0.3, 100, 30, "Accept")
     DButton_Accept.DoClick = function()
         net.Start("CL_RequestAccept")
         net.SendToServer()
     end
-    local DButton_Decline = createButton(DFrame_Trade_Menu, width * 0.5 - 50, height * 0.4, 100, 30, _U('selectDecline'))
+    local DButton_Decline = createButton(DFrame_Trade_Menu, width * 0.5 - 50, height * 0.4, 100, 30, "Decline")
     DButton_Decline.DoClick = function()
         net.Start("CL_RequestTradeClose")
         net.SendToServer()
@@ -109,7 +109,7 @@ function updateTradeMenu()
         DPanelList_Inv:AddItem(Inventory_Item)
         dModelPanel_Item.DoClick = function()
             D_ItemMENU = DermaMenu()
-            D_ItemMENU:AddOption(_U('tradeOfferMoney'), function()
+            D_ItemMENU:AddOption("Offer Money", function()
                 if LocalPlayer().Money > 1 then
                     amountPopupInventory(-1, LocalPlayer().Money, "CL_OfferMoney", 400)
                 else
@@ -125,7 +125,7 @@ function updateTradeMenu()
             local Inventory_Item, dModelPanel_Item = createInventoryButton(125, 125, ItemID, quantity)
             dModelPanel_Item.DoClick = function()
                 D_ItemMENU = DermaMenu()
-                D_ItemMENU:AddOption(_U('tradeOfferItem'), function()
+                D_ItemMENU:AddOption("Offer Item", function()
                     if Client_Inventory[ItemID] > 1 then
                         amountPopupInventory(ItemID, Client_Inventory[ItemID], "CL_OfferItem")
                     else
@@ -144,14 +144,14 @@ function updateTradeMenu()
                 DPanelList_PLAYER_1_Contents:AddItem(Inventory_Item)
                 dModelPanel_Item.DoClick = function()
                     D_ItemMENU = DermaMenu()
-                    D_ItemMENU:AddOption(_U('tradeRemoveMoney'), function() sendMessage("CL_OfferMoney", -1, 0) end)
+                    D_ItemMENU:AddOption("Retract Money", function() sendMessage("CL_OfferMoney", -1, 0) end)
                     D_ItemMENU:Open(gui.MousePos())
                 end
             else
                 local Inventory_Item, dModelPanel_Item = createInventoryButton(125, 125, ItemID, quantity)
                 dModelPanel_Item.DoClick = function()
                     D_ItemMENU = DermaMenu()
-                    D_ItemMENU:AddOption(_U('tradeRemoveItem'), function() sendMessage("CL_OfferItem", ItemID, 0) end)
+                    D_ItemMENU:AddOption("Retract Item", function() sendMessage("CL_OfferItem", ItemID, 0) end)
                     D_ItemMENU:Open(gui.MousePos())
                 end
                 DPanelList_PLAYER_1_Contents:AddItem(Inventory_Item)
@@ -170,9 +170,9 @@ function updateTradeMenu()
         end
     end
     if (PLAYER_1.AcceptTrade) then
-        ACCEPT_MESSAGE = _U('tradeWaiting4Other')
+        ACCEPT_MESSAGE = "Waiting for other player."
     elseif (PLAYER_2.AcceptTrade) then
-        ACCEPT_MESSAGE = _U('tradeAccepted')
+        ACCEPT_MESSAGE = "Other player has accepted."
     end
 end
 

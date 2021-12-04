@@ -24,9 +24,9 @@ function lootMenu(crate)
         surface.DrawTexturedRectUV(0, 0, width, height, 0, 0, width * 0.001, height * 0.001)
         dFrame_Banner(width, 35)
         if crate then
-            draw.DrawText(_U('supplyCrate'), "DebugFixedLarge", 10, 10, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
+            draw.DrawText("Supply crate", "DebugFixedLarge", 10, 10, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
         else
-            draw.DrawText(_U('deadPlayerBackpack'), "DebugFixedLarge", 10, 10, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
+            draw.DrawText("Dead Player's Backpack", "DebugFixedLarge", 10, 10, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
         end
     end
     if DPanelList_Backpack_Contents and DPanelList_Backpack_Contents:IsValid() then DPanelList_Backpack_Contents:Remove() end

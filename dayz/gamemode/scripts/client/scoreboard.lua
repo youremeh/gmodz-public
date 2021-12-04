@@ -79,25 +79,25 @@ function GM:HUDDrawScoreboard()
             DButton_Player.OnCursorExited = function() selectedPlayer = nil end
             DButton_Player.DoClick = function()
                 playerOptions = DermaMenu()
-                playerOptions:AddOption(_U('viewSteam'), function()
+                playerOptions:AddOption("View Steam Profile", function()
                     local stSteamID = string.Explode(":", ply:SteamID())
                     local iCommunityID = tonumber(stSteamID[3]) * 2 + 7960265728 + tonumber(stSteamID[2])
                     gui.OpenURL("http://steamcommunity.com/profiles/7656119"..iCommunityID)
                 end)
-                playerOptions:AddOption(_U('copyID64'), function()
+                playerOptions:AddOption("Copy SteamID64", function()
                     local stSteamID = string.Explode(":", ply:SteamID())
                     local iCommunityID = tonumber(stSteamID[3]) * 2 + 7960265728 + tonumber(stSteamID[2])
                     SetClipboardText("7656119"..iCommunityID)
                 end)
                 if ply ~= LocalPlayer() then
                     if ply.InGroup then
-                        playerOptions:AddOption(_U('groupKick'), function()
+                        playerOptions:AddOption("Kick from Group", function()
                             net.Start("CL_KickPlayer")
                             net.WriteEntity(ply)
                             net.SendToServer()
                         end)
                     else
-                        playerOptions:AddOption(_U('groupInvite'), function()
+                        playerOptions:AddOption("Invite to Group", function()
                             net.Start("CL_InvitePlayer")
                             net.WriteEntity(ply)
                             net.SendToServer()
@@ -105,7 +105,7 @@ function GM:HUDDrawScoreboard()
                     end
                 end
                 if ply == currentInvite then
-                    playerOptions:AddOption(_U('groupAccept'), function()
+                    playerOptions:AddOption("Accept Group Invite", function()
                         net.Start("CL_AcceptInvite")
                         net.SendToServer()
                         currentInvite = nil
@@ -113,7 +113,7 @@ function GM:HUDDrawScoreboard()
                 end
                 if ply == LocalPlayer() then
                     if LocalPlayer().InGroup then
-                        playerOptions:AddOption(_U('groupLeave'), function()
+                        playerOptions:AddOption("Leave Group", function()
                             net.Start("CL_LeaveGroup")
                             net.SendToServer()
                         end)
@@ -121,10 +121,10 @@ function GM:HUDDrawScoreboard()
                 end
                 if LocalPlayer():IsDayZAdmin() then
                     playerOptions:AddOption("", function() end)
-                    local giveRankMenu = playerOptions:AddSubMenu(_U('setRank'), function () end)
-                    local giveCreditsMenu = playerOptions:AddSubMenu(_U('giveCredits'), function () end)
-                    local giveMoneyMenu = playerOptions:AddSubMenu(_U('giveMoney'), function () end)
-                    local giveXPMenu = playerOptions:AddSubMenu(_U('giveXP'), function () end)
+                    local giveRankMenu = playerOptions:AddSubMenu("Set Rank", function () end)
+                    local giveCreditsMenu = playerOptions:AddSubMenu("Give Credits", function () end)
+                    local giveMoneyMenu = playerOptions:AddSubMenu("Give Money", function () end)
+                    local giveXPMenu = playerOptions:AddSubMenu("Give XP", function () end)
                     local credits = {25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300}
                     local money = {500, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 20000}
                     local xp = {500, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 20000}
@@ -140,15 +140,15 @@ function GM:HUDDrawScoreboard()
                     for i = 1, table.Count(xp) do
                         giveXPMenu:AddOption(xp[i], function() RunConsoleCommand("dz_GiveXP", ply:UserID(), xp[i]) end)
                     end
-                    playerOptions:AddOption(_U('resetMoney'), function() RunConsoleCommand("dz_ResetMoney", ply:UserID()) end)
-                    playerOptions:AddOption(_U('tp2Player'), function() RunConsoleCommand("dz_TeleportToPlayer", ply:UserID()) end)
-                    playerOptions:AddOption(_U('tpPlayer2Me'), function() RunConsoleCommand("dz_TeleportPlayerHere", ply:UserID()) end)
+                    playerOptions:AddOption("Reset Money", function() RunConsoleCommand("dz_ResetMoney", ply:UserID()) end)
+                    playerOptions:AddOption("Teleport To Player", function() RunConsoleCommand("dz_TeleportToPlayer", ply:UserID()) end)
+                    playerOptions:AddOption("Teleport Player Here", function() RunConsoleCommand("dz_TeleportPlayerHere", ply:UserID()) end)
                     local ruleTable = {'Breaking Community Rules & Guidelines', 'Hack/Cheat/Exploit', 'Trolling', 'Combat Logging', 'Malicious/Sexual Acts'}
-                    local kickMenu = playerOptions:AddSubMenu(_U('kick'), function () end)
+                    local kickMenu = playerOptions:AddSubMenu("Kick", function () end)
                     for i = 1, table.Count(ruleTable) do
                         kickMenu:AddOption(ruleTable[i], function() RunConsoleCommand("dz_Kick", ply:UserID(), ruleTable[i]) end)
                     end
-                    local banMenu = playerOptions:AddSubMenu(_U('ban'), function () end)
+                    local banMenu = playerOptions:AddSubMenu("Ban", function () end)
                     for i = 1, table.Count(ruleTable) do
                         banMenu:AddOption(ruleTable[i], function() RunConsoleCommand("dz_Ban", ply:UserID(), ruleTable[i]) end)
                     end
@@ -184,9 +184,9 @@ function GM:HUDDrawScoreboard()
             DLabel_Ping:SetFont("ScoreboardContent")
             DLabel_Ping:SetColor(Color(255, 255, 255, 255))
             if LocalPlayer():IsAdmin() then
-                DLabel_Ping:SetText(ply:Ping() .. _U('pingMS').." | " .. _U('kills')..": "..ply:GetNWInt("kills") .. " | ".._U('access')..": "..pLevel)
+                DLabel_Ping:SetText(ply:Ping() .. "ms | " .. "Kills: "..ply:GetNWInt("kills") .. " | Access: "..pLevel)
             else
-                DLabel_Ping:SetText(ply:Ping() .. _U('pingMS').." | " .. _U('kills')..": "..ply:GetNWInt("kills"))
+                DLabel_Ping:SetText(ply:Ping() .. "ms | " .. "Kills: "..ply:GetNWInt("kills"))--" | Access Level: "..pLevel)
             end
             DLabel_Ping:SizeToContents()
             local DLabel_BanditStatus = vgui.Create("DLabel", DButton_Player)
@@ -194,14 +194,14 @@ function GM:HUDDrawScoreboard()
             DLabel_BanditStatus:SetSize(200, 15)
             DLabel_BanditStatus:SetFont("ScoreboardContent")
             if ply:GetNWInt("kills") >= 3 then
-                DLabel_BanditStatus:SetText(_U('killsBandit'))
+                DLabel_BanditStatus:SetText("[BANDIT]")
                 DLabel_BanditStatus:SetPos(280, 2)
                 DLabel_BanditStatus:SetColor(Color(200, 0, 0, 255))
             elseif ply:GetNWInt("kills") < -3 then
-                DLabel_BanditStatus:SetText(_U('killsHero'))
+                DLabel_BanditStatus:SetText("[HERO]")
                 DLabel_BanditStatus:SetColor(Color(0, 0, 200, 255))
             else
-                DLabel_BanditStatus:SetText(_U('killsNeutral'))
+                DLabel_BanditStatus:SetText("[NEUTRAL]")
                 DLabel_BanditStatus:SetColor(Color(255, 255, 255, 255))
             end
             DPanelList_Players:AddItem(DButton_Player)

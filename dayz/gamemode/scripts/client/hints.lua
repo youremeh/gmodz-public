@@ -11,8 +11,8 @@ local Tip_String = ""
 function HINTPaint()
     if LocalPlayer():IsValid() then
         if itemPlacer then
-            draw.DrawText(_U('itemPlacerChoose'), "Trebuchet24", ScrW() / 2, (ScrH() * 0.8), Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
-            draw.DrawText(_U('itemPlacerRotate'), "Trebuchet24", ScrW() / 2, (ScrH() * 0.8 + 30), Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+            draw.DrawText("Press LMB to place or RMB to remove", "Trebuchet24", ScrW() / 2, (ScrH() * 0.8), Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+            draw.DrawText("Press R to rotate", "Trebuchet24", ScrW() / 2, (ScrH() * 0.8 + 30), Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
         end
         if XpAddInc == true then
             if XPPos < 200 then XPPos = XPPos + 3 end
@@ -24,7 +24,7 @@ function HINTPaint()
         surface.SetMaterial(Material("icons/background_cracks"))
         surface.SetDrawColor(Color(0, 0, 0, 200))
         surface.DrawTexturedRectUV(x, y, w, h, 0, 0, w * 0.001, h * 0.001)
-        draw.DrawText("+"..XP_Amount.._U('xpRewarded'), "Trebuchet24", ScrW() - (XPPos - 15), (ScrH() * 0.25) + 6, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
+        draw.DrawText("+"..XP_Amount.."XP Awarded", "Trebuchet24", ScrW() - (XPPos - 15), (ScrH() * 0.25) + 6, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
         if MoneyAddInc == true then
             if MoneyPos < 255 then MoneyPos = MoneyPos + 3 end
         else
@@ -35,7 +35,7 @@ function HINTPaint()
         surface.SetMaterial(Material("icons/background_cracks"))
         surface.SetDrawColor(Color(0, 0, 0, MoneyPos * 0.8))
         surface.DrawTexturedRectUV(x, y, w, h, 0, 0, w * 0.001, h * 0.001)
-        draw.DrawText(_U('moneySign')..Money_Amount.." ".._U('moneyPickedUp'), "Trebuchet24", 25, (ScrH() / 1.5) + 6, Color(255, 255, 255, MoneyPos), TEXT_ALIGN_LEFT)
+        draw.DrawText("$"..Money_Amount.." Picked up", "Trebuchet24", 25, (ScrH() / 1.5) + 6, Color(255, 255, 255, MoneyPos), TEXT_ALIGN_LEFT)
         if TipAddInc == true then
             if TipAlpha < 255 then TipAlpha = TipAlpha + 3 end
         else

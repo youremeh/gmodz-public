@@ -11,7 +11,7 @@ PlayerPerks = PlayerPerks or {}
 net.Receive("DeathMessage", function(len)
     deathMsg = net.ReadString()
     surface.PlaySound("music/death.wav")
-    timer.Simple(5, function() deathLMBMsg = _U('respawnMsg') end)
+    timer.Simple(5, function() deathLMBMsg = "Press LMB to respawn" end)
 end)
 
 function GM:DrawDeathNotice(x, y)
@@ -33,7 +33,7 @@ function GM:DrawDeathNotice(x, y)
         surface.DrawTexturedRectUV(halfSW - halfDeadBoxW, halfSH + halfDeadBoxH, DeadBoxW, 2, 0, 0, DeadBoxW * 0.002, 2 * 0.002)
         surface.DrawTexturedRectUV(halfSW - halfDeadBoxW, halfSH - halfDeadBoxH, 2, DeadBoxH, 0, 0, 2 * 0.002, DeadBoxH * 0.002)
         surface.DrawTexturedRectUV(halfSW + halfDeadBoxW, halfSH - halfDeadBoxH, 2, DeadBoxH, 0, 0, 2 * 0.002, DeadBoxH * 0.002)
-        draw.DrawText(_U('deathMessage'), "TargetIDLarge", halfSW, halfSH - 50, Color(255, 0, 0, 255), TEXT_ALIGN_CENTER)
+        draw.DrawText("You perished!", "TargetIDLarge", halfSW, halfSH - 50, Color(255, 0, 0, 255), TEXT_ALIGN_CENTER)
         if deathMsg then draw.DrawText(deathMsg, "TargetIDMedium", halfSW, halfSH, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER) end
         if deathLMBMsg then draw.DrawText(deathLMBMsg, "TargetIDMedium", halfSW, halfSH + 30, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER) end
     else
@@ -93,7 +93,7 @@ function drawMinimap()
     surface.SetMaterial(Material("icons/minimap"))
     surface.SetDrawColor(TransGreen)
     surface.DrawTexturedRectRotated(ScrW() - size * 0.5, size * 0.5, size, size, LocalPlayer():GetAngles().y)
-    draw.DrawText(_U('comingSoon'), "ChatFont", ScrW() - size * 0.5, size * 0.45, Color(255, 255, 255, 150), TEXT_ALIGN_CENTER)
+    draw.DrawText("Coming Soon!", "ChatFont", ScrW() - size * 0.5, size * 0.45, Color(255, 255, 255, 150), TEXT_ALIGN_CENTER)
 end
 
 function playerGroupNames()
@@ -124,10 +124,10 @@ function HelpMarker()
         local distance = Loc:Distance(LocalPlayer():GetPos())
         local distM = math.Round(distance * 0.01905)
         if(Loc and Loc:Distance(LocalPlayer():GetPos()) >= 5 + (safeZoneTbl[i].Radius or 0)) then
-            draw.DrawText(_U('safeZone'), "ChatFont", screenPos.x, screenPos.y - 50, Color(0, 150, 0, distM * 20), TEXT_ALIGN_CENTER)
+            draw.DrawText("SafeZone", "ChatFont", screenPos.x, screenPos.y - 50, Color(0, 150, 0, distM * 20), TEXT_ALIGN_CENTER)
             draw.DrawText(distM.."m", "ChatFont", screenPos.x, screenPos.y - 36, Color(0, 150, 0, distM * 20), TEXT_ALIGN_CENTER)
         else
-            draw.DrawText(_U('bank'), "ChatFont", screenPos.x, screenPos.y - 50, Color(0, 150, 0, distM * 20), TEXT_ALIGN_CENTER)
+            draw.DrawText("Bank", "ChatFont", screenPos.x, screenPos.y - 50, Color(0, 150, 0, distM * 20), TEXT_ALIGN_CENTER)
             draw.DrawText(distM.."m", "ChatFont", screenPos.x, screenPos.y - 36, Color(0, 150, 0, distM * 20), TEXT_ALIGN_CENTER)
         end
     end
@@ -180,9 +180,15 @@ function drawPlayerHUD_New()
     surface.DrawTexturedRectUV(x, y, size, size, 0, 0, 1, 1)
 end
 
+<<<<<<< HEAD
 local dzHud = CreateClientConVar("dz_hud", 1, true, false, 'Change HUD styles')
 local dzHelp = CreateClientConVar("dz_showsafezone", 1, true, false, 'Show/Hide the SafeZone marker')
 local dzMini = CreateClientConVar("dz_minimap", 0, true, false, 'Show/Hide the Mini-Map (BROKEN)')
+=======
+local dzHud = CreateClientConVar("dz_hud", 1, true, false, "Choose between the new HUD, or the old HUD.")
+local dzHelp = CreateClientConVar("dz_showsafezone", 1, true, false, "Choose to show where the SafeZone is on your screen")
+local dzMini = CreateClientConVar("dz_minimap", 0, true, false, "Choose to show the Minimap (BROKEN)")
+>>>>>>> parent of e682de7 (:heavy_exclamation_mark: :heavy_exclamation_mark: :heavy_exclamation_mark: MAJOR UPDATE pt.1 :heavy_exclamation_mark: :heavy_exclamation_mark: :heavy_exclamation_mark:)
 function drawPlayerHud()
     local SW, SH = ScrW(), ScrH()
     local halfSW = SW * 0.5
@@ -213,17 +219,17 @@ function drawPlayerHud()
         surface.DrawTexturedRectUV(halfSW - halfSafeZoneW, fifthSH + halfSafeZoneH, SafeZoneW, 2, 0, 0, SafeZoneW * 0.002, 2 * 0.002)
         surface.DrawTexturedRectUV(halfSW - halfSafeZoneW, fifthSH - halfSafeZoneH, 2, SafeZoneH, 0, 0, 2 * 0.002, SafeZoneH * 0.002)
         surface.DrawTexturedRectUV(halfSW + halfSafeZoneW, fifthSH - halfSafeZoneH, 2, SafeZoneH, 0, 0, 2 * 0.002, SafeZoneH * 0.002)
-        DrawFadingText(0.5, _U('safeZoneWarning'), "TargetIDLarge", halfSW, fifthSH - 45, Color(255, 0, 0, 255), Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
-        draw.DrawText(_U('safeZoneCantHurt'), "TargetIDMedium", halfSW, fifthSH, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+        DrawFadingText(0.5, "SAFE ZONE WARNING", "TargetIDLarge", halfSW, fifthSH - 45, Color(255, 0, 0, 255), Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+        draw.DrawText("You can't be hurt while inside the SafeZone", "TargetIDMedium", halfSW, fifthSH, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
         if UseNewShop then
-            draw.DrawText(_U('safeZoneShopNew'), "TargetIDMedium", halfSW, fifthSH + 23, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+            draw.DrawText("SafeZone Shop is located inside the building", "TargetIDMedium", halfSW, fifthSH + 23, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
         else
-            draw.DrawText(_U('safeZoneShopOld'), "TargetIDMedium", halfSW, fifthSH + 23, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+            draw.DrawText("Press F2 to access the SafeZone Shop", "TargetIDMedium", halfSW, fifthSH + 23, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
         end
     end
     if LocalPlayer():InVehicle() then
-        draw.DrawText(_U('vehFuel')..math.Round(LocalPlayer():GetVehicle():GetNWInt("fuel")) .. "%", "Trebuchet24", halfSW - 75, ScrH() - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
-        draw.DrawText(_U('vehHealth')..math.Round(LocalPlayer():GetVehicle():Health()) .. " %", "Trebuchet24", halfSW + 75, ScrH() - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+        draw.DrawText("Fuel: "..math.Round(LocalPlayer():GetVehicle():GetNWInt("fuel")) .. "%", "Trebuchet24", halfSW - 75, ScrH() - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+        draw.DrawText("Health: "..math.Round(LocalPlayer():GetVehicle():Health()) .. " %", "Trebuchet24", halfSW + 75, ScrH() - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
         draw.RoundedBox(10, halfSW - 154, SH - 25, 153, 50, Color(0, 0, 0, 155)) -- Fuel Tank Box
         draw.RoundedBox(10, halfSW + 1, SH - 25, 152, 50, Color(0, 0, 0, 155)) -- Speed Box
     end
@@ -239,11 +245,11 @@ function drawPlayerHud()
                 draw.RoundedBox(10, screenPos.x - 50, screenPos.y - 25, 100, 60, Color(0, 0, 0, alpha))
                 draw.DrawText(trEntity:Nick(), "TargetIDWeighted", screenPos.x, screenPos.y - 15, Color(255, 255, 255, alpha), TEXT_ALIGN_CENTER)
                 if trEntity:GetNWInt("kills") >= 3 then
-                    draw.DrawText(_U('killsBandit'), "debugFixed", screenPos.x, screenPos.y + 5, Color(200, 0, 0, alpha), TEXT_ALIGN_CENTER)
+                    draw.DrawText("[BANDIT]", "debugFixed", screenPos.x, screenPos.y + 5, Color(200, 0, 0, alpha), TEXT_ALIGN_CENTER)
                 elseif trEntity:GetNWInt("kills") < -3 then
-                    draw.DrawText(_U('killsHero'), "debugFixed", screenPos.x, screenPos.y + 5, Color(0, 0, 200, alpha), TEXT_ALIGN_CENTER)
+                    draw.DrawText("[HERO]", "debugFixed", screenPos.x, screenPos.y + 5, Color(0, 0, 200, alpha), TEXT_ALIGN_CENTER)
                 else
-                    draw.DrawText(_U('killsNeutral'), "debugFixed", screenPos.x, screenPos.y + 5, Color(255, 255, 255, alpha), TEXT_ALIGN_CENTER)
+                    draw.DrawText("[NEUTRAL]", "debugFixed", screenPos.x, screenPos.y + 5, Color(255, 255, 255, alpha), TEXT_ALIGN_CENTER)
                 end
             end
         end
@@ -252,9 +258,9 @@ function drawPlayerHud()
         surface.SetMaterial(Material("icons/background_cracks"))
         surface.SetDrawColor(Color(0, 0, 0, 230))
         surface.DrawTexturedRectUV(SW - 300, SH - 30, 300, 40, 0, 0, 0.3, 0.04)
-        draw.DrawText(_U('moneySign')..LocalPlayer().Money, "TargetIDMedium", SW - 250, SH - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
-        draw.DrawText(_U('xp')..LocalPlayer().XP, "TargetIDMedium", SW - 50, SH - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
-        draw.DrawText(_U('credits')..LocalPlayer().Credits, "TargetIDMedium", SW - 150, SH - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+        draw.DrawText("$"..LocalPlayer().Money, "TargetIDMedium", SW - 250, SH - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+        draw.DrawText("XP:"..LocalPlayer().XP, "TargetIDMedium", SW - 50, SH - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+        draw.DrawText("Credits:"..LocalPlayer().Credits, "TargetIDMedium", SW - 150, SH - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
     end
 end
 hook.Add("HUDPaint", "drawPlayerHud", drawPlayerHud)
@@ -360,15 +366,15 @@ function DrawPickups()
     local traceRes = LocalPlayer():GetEyeTrace()
     local trace = util.TraceLine(traceRes)
     local dropTypes = {}
-    dropTypes["base_item"] = {_U('getItem')}
-    dropTypes["money"] = {_U('getMoney'), "MONEY"}
-    dropTypes["backpack"] = {_U('getBackpack'), "BACKPACK"}
-    dropTypes["bank"] = {_U('getBank'), "SAFE ZONE BANK"}
+    dropTypes["base_item"] = {"PRESS 'E' TO PICKUP ITEM"}
+    dropTypes["money"] = {"PRESS 'E' TO PICKUP MONEY", "MONEY"}
+    dropTypes["backpack"] = {"PRESS 'E' TO LOOT BACKPACK", "BACKPACK"}
+    dropTypes["bank"] = {"PRESS 'E' TO ACCESS BANK", "SAFE ZONE BANK"}
     if UseNewShop then
-        dropTypes["shop"] = {_U('getShop'), "SAFE ZONE SHOP"}
+        dropTypes["shop"] = {"PRESS 'E' TO ACCESS SHOP", "SAFE ZONE SHOP"}
     end
-    dropTypes["player"] = {_U('getPlayerTrade'), "TRADE"}
-    dropTypes["airdrop_crate"] = {_U('getAirdrop'), "AIRDROP CRATE"}
+    dropTypes["player"] = {"PRESS 'E' TO TRADE", "TRADE"}
+    dropTypes["airdrop_crate"] = {"PRESS 'E' TO LOOT AIRDROP", "AIRDROP CRATE"}
     if traceRes.HitPos and LocalPlayer():Alive() then
         for _, ent in pairs(ents.FindInSphere(traceRes.HitPos, 15)) do
             if ent and ent:IsValid() and (ent:GetPos() - LocalPlayer():GetPos()):Length() < 80 then
