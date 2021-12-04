@@ -56,11 +56,7 @@ function ShopMenu()
     DPanelList_ShopTabSell:EnableVerticalScrollbar(true)
     DPanelList_ShopTabSell.Paint = function() draw.RoundedBox(10, 0, 0, DPanelList_ShopTabSell:GetWide(), DPanelList_ShopTabSell:GetTall(), Color(30, 30, 30, 0)) end
     updateSell()
-<<<<<<< HEAD
-    local DButton_Donate = createButton(DFrame_ShopMenu, 400, 4, 250, 30, _U('donationInfo2'))
-=======
     local DButton_Donate = createButton(DFrame_ShopMenu, 400, 4, 250, 30, "Donation Benefits & Information")
->>>>>>> parent of e682de7 (:heavy_exclamation_mark: :heavy_exclamation_mark: :heavy_exclamation_mark: MAJOR UPDATE pt.1 :heavy_exclamation_mark: :heavy_exclamation_mark: :heavy_exclamation_mark:)
     DButton_Donate.DoClick = function()
         DFrame_ShopMenu:Remove()
         donateMenuSafe()
@@ -119,11 +115,7 @@ function donateMenuSafe()
     DonatePanel:SetPos(0, 0)
     DonatePanel:SetSize(500, 570)
     DonatePanel:Center()
-<<<<<<< HEAD
-    DonatePanel:SetTitle(_U('donationInfo2'))
-=======
     DonatePanel:SetTitle("Donation Benefits & Information")
->>>>>>> parent of e682de7 (:heavy_exclamation_mark: :heavy_exclamation_mark: :heavy_exclamation_mark: MAJOR UPDATE pt.1 :heavy_exclamation_mark: :heavy_exclamation_mark: :heavy_exclamation_mark:)
     DonatePanel:SetVisible(true)
     DonatePanel:SetDraggable(true)
     DonatePanel:MakePopup()
