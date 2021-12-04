@@ -43,7 +43,7 @@ function HINTPaint()
                 TipAlpha = TipAlpha - 3
             end
         end
-        draw.DrawText("Tip: "..Tip_String, "TargetIDMedium", ScrW() / 2, ScrH() - 150, Color(255, 255, 255, TipAlpha), TEXT_ALIGN_CENTER)
+        draw.DrawText("Tip: "..Tip_String, "Trebuchet24", ScrW() / 2, ScrH() - 150, Color(255, 255, 255, TipAlpha), TEXT_ALIGN_CENTER)
     end
 end
 hook.Add("HUDPaint", "PaintOurHint", HINTPaint)
