@@ -180,15 +180,9 @@ function drawPlayerHUD_New()
     surface.DrawTexturedRectUV(x, y, size, size, 0, 0, 1, 1)
 end
 
-<<<<<<< HEAD
-local dzHud = CreateClientConVar("dz_hud", 1, true, false, 'Change HUD styles')
-local dzHelp = CreateClientConVar("dz_showsafezone", 1, true, false, 'Show/Hide the SafeZone marker')
-local dzMini = CreateClientConVar("dz_minimap", 0, true, false, 'Show/Hide the Mini-Map (BROKEN)')
-=======
 local dzHud = CreateClientConVar("dz_hud", 1, true, false, "Choose between the new HUD, or the old HUD.")
 local dzHelp = CreateClientConVar("dz_showsafezone", 1, true, false, "Choose to show where the SafeZone is on your screen")
 local dzMini = CreateClientConVar("dz_minimap", 0, true, false, "Choose to show the Minimap (BROKEN)")
->>>>>>> parent of e682de7 (:heavy_exclamation_mark: :heavy_exclamation_mark: :heavy_exclamation_mark: MAJOR UPDATE pt.1 :heavy_exclamation_mark: :heavy_exclamation_mark: :heavy_exclamation_mark:)
 function drawPlayerHud()
     local SW, SH = ScrW(), ScrH()
     local halfSW = SW * 0.5
