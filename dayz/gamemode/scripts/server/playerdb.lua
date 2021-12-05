@@ -44,16 +44,34 @@ function newCharacter(ply)
     ply:SetHealth(100)
     ply.Thirst = 100
     ply.Hunger = 100
-    ply:GiveItem(4, 2)
-    ply:GiveItem(5, 2)
-    ply:GiveItem(14, 1)
-    ply:GiveItem(15, 1)
-    ply:SetNWInt("kills", 0)
+    local luck = math.random(1,100)
+    local randItem = math.random(1,70)
+    local randAmt = math.random(0,1)
+    local luck2 = math.random(1,100)
+    local randItem2 = math.random(1,70)
+    local randAmt2 = math.random(0,1)
+    if (ply.Perk[3]) then
+        if luck < 75 then
+            ply:GiveItem(randItem, randAmt)
+            print(luck, randItem, randAmt)
+            if luck2 < 95 then
+                ply:GiveItem(randItem2, randAmt2)
+                print(luck2, randItem2, randAmt2)
+            end
+        end
+    end
     if (ply.Perk[4]) then
+        ply:GiveItem(4, 4)
+        ply:GiveItem(5, 4)
+        ply:GiveItem(14, 2)
+        ply:GiveItem(15, 2)
+    else
         ply:GiveItem(4, 2)
         ply:GiveItem(5, 2)
         ply:GiveItem(14, 1)
+        ply:GiveItem(15, 1)
     end
+    ply:SetNWInt("kills", 0)
     ply.Spawned = true
     ply:SetPos(table.Random(Spawns[string.lower(game.GetMap())]) + Vector(0, 0, 30))
     net.Start("CharSelect")
