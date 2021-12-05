@@ -104,7 +104,7 @@ function SetRank(ply, SteamID, rank)
     local SteamID = tostring(SteamID)
     local rank = tonumber(rank)
     if not SteamID then print("No Steam ID entered") return end
-    if not rank then print("No rank entered") return end
+    if not rank then ply:Tip("No rank entered") return end
     if not PlayerRank[rank] then print("Invalid Rank") return end
     if ply:IsValid() and not ply:IsDayZSuperAdmin() then
         ply:ChatPrint("You cannot use this command.")
