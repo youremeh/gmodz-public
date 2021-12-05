@@ -263,9 +263,9 @@ DayZItems[17] = {
 }
 
 DayZItems[18] = {
-    Name = "Dead Man's Luck",
-    Desc = "Have a chance of keeping some items on death",
-    Model = "models/props/cs_assault/money.mdl",
+    Name = "Fresh Man's Luck",
+    Desc = "Have a chance to spawn with extra loot items",
+    Model = "models/items/item_item_crate.mdl",
     Weight = 0,
     Credits = 3,
     CamOffset = 0.2,
@@ -279,7 +279,7 @@ DayZItems[18] = {
 
 DayZItems[19] = {
     Name = "Extra Items",
-    Desc = "Spawn with some extra items",
+    Desc = "Spawn with 2x the regular loot",
     Model = "models/items/item_item_crate.mdl",
     Weight = 0,
     Credits = 5,
