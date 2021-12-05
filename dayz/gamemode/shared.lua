@@ -1,7 +1,7 @@
 GM.Name = "GMod-Z"
-GM.Author = "Vanguardian"
-GM.Email = ""
-GM.Website = "https://deceitfulgaming.com"
+GM.Author = "Jay"
+GM.Email = "N/A"
+GM.Website = "N/A"
 
 --[[
     True = Players need to go inside the building to use the shop
@@ -17,7 +17,7 @@ UseNewShop = true
     False = Use the InventorySpaceMulti and adjust inventory size based on player rank
 
     THIS CAN BE CHANGED ON THE FLY (True statement just changes inventory numbers)
-    HOWEVER BE CAREFUL. PLAYERS MIGHT NIGHT LIKE THE TRUE VERSION
+    HOWEVER BE CAREFUL. PLAYERS MIGHT NOTT LIKE THE TRUE VERSION
 ]]
 UseStaticInventorySpace = false
 
@@ -36,7 +36,7 @@ DefaultInventorySpace = 100
     False = Use the BankSpaceMulti and adjust bank size based on player rank
 
     THIS CAN BE CHANGED ON THE FLY (True statement just changes bank numbers)
-    HOWEVER BE CAREFUL. PLAYERS MIGHT NIGHT LIKE THE TRUE VERSION
+    HOWEVER BE CAREFUL. PLAYERS MIGHT NOT LIKE THE TRUE VERSION
 ]]
 UseStaticBankSpace = false
 
@@ -58,25 +58,19 @@ DefaultBankSpace = 500
 ]]
 BackPackMulti = 1.5
 
-team.SetUp(1, "Survivor", Color(150, 0, 0, 255))
+team.SetUp(1, "Survivor", Color(0, 0, 0, 80))
 
 PlayerTitle = {}
 PlayerTitle["STEAM_0:0:423125380"] = "Developer"
 
 PlayerRank = {}
-PlayerRank[-1]  = {Name = "Banned",       Clr = Color(0, 0, 0, 255),      CreditGain = 0,   InventorySpaceMulti = 0,    BankSpaceMulti = 0}
-PlayerRank[0]   = {Name = "User",         Clr = Color(255, 255, 255, 255),CreditGain = 0,   InventorySpaceMulti = 1,    BankSpaceMulti = 1}
-PlayerRank[1]   = {Name = "Bronze",       Clr = Color(205, 127, 50, 255), CreditGain = 100, InventorySpaceMulti = 1.5,  BankSpaceMulti = 1.5}
-PlayerRank[2]   = {Name = "Silver",       Clr = Color(192, 192, 192, 255),CreditGain = 200, InventorySpaceMulti = 2,    BankSpaceMulti = 2}
-PlayerRank[3]   = {Name = "Gold",         Clr = Color(255, 215, 0, 255),  CreditGain = 300, InventorySpaceMulti = 2.5,  BankSpaceMulti = 2.5}
-PlayerRank[4]   = {Name = "Platinum",     Clr = Color(229, 228, 226, 255),CreditGain = 400, InventorySpaceMulti = 3,    BankSpaceMulti = 3}
-PlayerRank[94]  = {Name = "Helper",       Clr = Color(233, 30, 99, 255),  CreditGain = 50,  InventorySpaceMulti = 3,    BankSpaceMulti = 3}
-PlayerRank[95]  = {Name = "Moderator",    Clr = Color(233, 30, 99, 255),  CreditGain = 50,  InventorySpaceMulti = 3,    BankSpaceMulti = 3}
-PlayerRank[96]  = {Name = "Admin",        Clr = Color(233, 30, 99, 255),  CreditGain = 50,  InventorySpaceMulti = 3.5,  BankSpaceMulti = 3.5}
-PlayerRank[97]  = {Name = "Lead Admin",   Clr = Color(233, 30, 99, 255),  CreditGain = 0,   InventorySpaceMulti = 4,    BankSpaceMulti = 4}
-PlayerRank[98]  = {Name = "Senior Admin", Clr = Color(233, 30, 99, 255),  CreditGain = 0,   InventorySpaceMulti = 5,    BankSpaceMulti = 5}
-PlayerRank[99]  = {Name = "C.Manager",    Clr = Color(233, 30, 99, 255),  CreditGain = 0,   InventorySpaceMulti = 5,    BankSpaceMulti = 5}
-PlayerRank[100] = {Name = "Director",     Clr = Color(233, 30, 99, 255),  CreditGain = 0,   InventorySpaceMulti = 5,    BankSpaceMulti = 5}
+PlayerRank[-1]  = {Name = "Banned",    Clr = Color(0, 0, 0),       CreditGain = 0,   InventorySpaceMulti = 0,   BankSpaceMulti = 0}
+PlayerRank[0]   = {Name = "User",      Clr = Color(255, 255, 255), CreditGain = 0,   InventorySpaceMulti = 1,   BankSpaceMulti = 1}
+PlayerRank[1]   = {Name = "VIP",       Clr = Color(205, 127, 50),  CreditGain = 100, InventorySpaceMulti = 1.5, BankSpaceMulti = 1.5}
+PlayerRank[95]  = {Name = "Moderator", Clr = Color(233, 30, 99),   CreditGain = 50,  InventorySpaceMulti = 2,   BankSpaceMulti = 2}
+PlayerRank[96]  = {Name = "Admin",     Clr = Color(233, 30, 99),   CreditGain = 50,  InventorySpaceMulti = 2.5, BankSpaceMulti = 2.5}
+PlayerRank[99]  = {Name = "Developer", Clr = Color(233, 30, 99),   CreditGain = 0,   InventorySpaceMulti = 5,   BankSpaceMulti = 5}
+PlayerRank[100] = {Name = "Director",  Clr = Color(233, 30, 99),   CreditGain = 0,   InventorySpaceMulti = 5,   BankSpaceMulti = 5}
 
 EMETA = FindMetaTable("Entity")
 function EMETA:inSafeZone()
