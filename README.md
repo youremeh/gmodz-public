@@ -61,5 +61,5 @@ A: You need to make sure you mount the proper game files in `mount.cfg` (https:/
 - If you're on a VDS, you will need to trnasfer these files manually (https://i.imgur.com/WfqetJ1.png)
 - If you bought a Gameserver, you should be fine
 
-Q: Why can't I access the Bank or Shop?
+Q: Why can't I access the Bank or Shop?  
 A: Read the above answer.
