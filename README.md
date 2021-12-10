@@ -60,3 +60,6 @@ Q: Why can I/others walk through props on the map?
 A: You need to make sure you mount the proper game files in `mount.cfg` (https://i.imgur.com/8LAnlnH.png)
 - If you're on a VDS, you will need to trnasfer these files manually (https://i.imgur.com/WfqetJ1.png)
 - If you bought a Gameserver, you should be fine
+
+Q: Why can't I access the Bank or Shop?
+A: Read the above answer.
