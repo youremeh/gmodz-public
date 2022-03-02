@@ -3,7 +3,7 @@
 ################################################################
 
 Created by ?  
-Edited by [VanguardianDG](http://github.com/VanguardianDG)
+Edited by [Jay, The Creator](http://github.com/NotJayTheCreator)
 
 # Install
 1. [Download the SQL files](https://github.com/FredyH/MySQLOO/releases) - Both Windows, and Linux **NEED** to do this
