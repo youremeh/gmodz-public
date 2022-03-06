@@ -48,6 +48,7 @@ end
 net.Receive("CL_OfferItem", function(len, ply) ply:OfferItem(net.ReadUInt(14), net.ReadUInt(14)) end)
 
 function PMETA:AcceptOffer()
+    if not self.TradeWith then return end
     self.AcceptTrade = true
     net.Start("UpdateOffer")
     net.WriteEntity(self)
