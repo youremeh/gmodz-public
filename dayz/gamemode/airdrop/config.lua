@@ -4,6 +4,7 @@ GM.AirDropHeight = {}
     How fast the Airplane will fly
 ]]
 GM.AirDropPlaneSpeed = 350
+
 --[[
     The default drop location for the Airplane
 ]]
@@ -14,14 +15,17 @@ GM.AirDropStartLocations["rp_stalker_new"] = {
     How high the Airplane will be from the ground
 ]]
 GM.AirDropHeight["rp_stalker_new"] = 1800
+
 --[[
     The minimum amount of loot an airdrop will have (takes into account chance %)
 ]]
 GM.MinLootPerCrate = 2
+
 --[[
     The maximum amount of loot an airdrop will have (takes into account chance %)
 ]]
 GM.MaxLootPerCrate = 8
+
 --[[
     Possible Airdrop items
     {ITEM ID, ITEM COUNT, %}
