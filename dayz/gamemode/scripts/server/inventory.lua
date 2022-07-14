@@ -1,3 +1,5 @@
+UseM9K = false
+
 PMETA = FindMetaTable("Player")
 util.AddNetworkString("UpdateInventory")
 util.AddNetworkString("UpdateItem")
@@ -153,9 +155,12 @@ function PMETA:UpdateItem(itemID)
     self:UpdateWeapons()
     self:AddWeight()
     local wep = self:GetActiveWeapon()
-    if (wep:IsValid() and wep:IsWeapon() and wep:Clip2() >= 0) then
-        wep:SetClip2(HasItem(self, wep.Primary.AmmoItem))
-        wep:UpdateClip()
+    if not UseM9K then
+        local wep = self:GetActiveWeapon()
+        if (wep:IsValid() and wep:IsWeapon() and wep:Clip2() >= 0) then
+            wep:SetClip2(HasItem(self, wep.Primary.AmmoItem))
+            wep:UpdateClip()
+        end
     end
 end
 
