@@ -15,6 +15,10 @@ Edited by [Jay, The Creator](http://github.com/NotJayTheCreator)
     resource.AddWorkshop("2633540974") -- [GModZ] Models
     resource.AddWorkshop("2633541440") -- [GModZ] Sounds
     resource.AddWorkshop("2695585209") -- [GModZ] Playermodels
+    resource.AddWorkshop("128093075") -- M9K Small Arms pack
+    resource.AddWorkshop("128091208") -- M9K Heavy Weapons
+    resource.AddWorkshop("128089118") -- M9K Assault Rifles
+    resource.AddWorkshop("144982052") -- M9K Specialties
     ```
 6. Use this [collection pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2595587443) or add them to your own
 7. Goto your `server.cfg` file and add the following (this prevents instant weapon deploy)
