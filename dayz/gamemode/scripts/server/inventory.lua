@@ -594,3 +594,15 @@ concommand.Add("CraftItem", function(ply, _, args)
         end)
     end
 end)
+
+hook.Add("PlayerDisconnected", "Playerleave", function(ply)
+    SaveAmmo(ply)
+end)
+
+function SaveAmmo(ply)
+    table.foreach(ply:GetAmmo(), function(key, value)
+        if key ~= "unique_id" then
+            sql.QueryRow("Update DayZ_ammo SET " .. game.GetAmmoName(key) .. "=" .. value .. " WHERE unique_id = '" .. ply:SteamID() .. "'")
+        end
+    end)
+end

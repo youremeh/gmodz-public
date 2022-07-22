@@ -13,10 +13,19 @@ function GM:GetFallDamage(ply, speed)
     return speed * (100 / (1024 - 580))
 end
 
+function resetAmmo(ply)
+    table.foreach(ply:GetAmmo(), function(key, value)
+        if key ~= "unique_id" then
+            sql.QueryRow("Update DayZ_ammo SET "..game.GetAmmoName( key ).. "= 0 WHERE unique_id = '"..ply:SteamID() .. "'")
+        end
+    end)
+end
+
 function GM:DoPlayerDeath(ply, attacker, dmginfo)
     ply:DropAll()
     ply:CreateRagdoll()
     ply.AllowRespawn = false
+    resetAmmo(ply)
     if ply:GetNWInt("kills") >= 3 then
         attacker:SetNWInt("kills", attacker:GetNWInt("kills") - 2)
         if attacker:IsValid() and attacker ~= ply then

@@ -13,6 +13,7 @@ function GM:PlayerSpawn(ply)
     timer.Create("currency"..ply:Nick(), 4, 1, function() ply:UpdateCurrencies() end)
     ply:Give("weapon_fists")
     ply:SetupHands()
+    loadAmmo(ply)
 end
 
 function Lower_HungerWater()
@@ -127,5 +128,17 @@ function GM:PlayerSetHandsModel(ply, ent)
         ent:SetModel(info.model)
         ent:SetSkin(info.skin)
         ent:SetBodyGroups(info.body)
+    end
+end
+
+function loadAmmo( ply )
+    local pStats = sql.QueryRow("SELECT * FROM DayZ_stats WHERE unique_id = '"..ply:SteamID() .. "'")
+    if tonumber(pStats.alive) == 1 then
+        local pAmmo = sql.QueryRow("SELECT * FROM DayZ_ammo WHERE unique_id = '"..ply:SteamID() .. "'")
+        table.foreach( pAmmo, function(key, value)
+            if key ~= "unique_id" then
+                ply:GiveAmmo(value, key, true)
+            end
+        end)
     end
 end

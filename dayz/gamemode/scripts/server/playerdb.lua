@@ -158,6 +158,10 @@ function CreateTables()
     if not sql.TableExists("DayZ_skills") then
         sql.Query("CREATE TABLE DayZ_skills ( unique_id varchar(255) )")
     end
+    if not sql.TableExists("DayZ_ammo") then
+        sql.Query("CREATE TABLE DayZ_ammo ( unique_id varchar(255) )")
+        for i = 1, table.Count(game.GetAmmoTypes()) do sql.Query("ALTER TABLE DayZ_Ammo ADD "..tostring(game.GetAmmoName(i)) .. " int DEFAULT '0' NOT NULL") end
+    end
     updateInventoryTable()
     updateSkillTable()
 end
@@ -169,6 +173,7 @@ function newPlayerAccount(ply)
     sql.Query("INSERT INTO DayZ_bank (`unique_id`)VALUES ('"..ply:SteamID() .. "')")
     sql.Query("INSERT INTO DayZ_skills (`unique_id`)VALUES ('"..ply:SteamID() .. "')")
     sql.Query("INSERT INTO DayZ_perks (`unique_id`)VALUES ('"..ply:SteamID() .. "')")
+    sql.Query("INSERT INTO DayZ_ammo (`unique_id`)VALUES ('"..ply:SteamID() .. "')")
     result = sql.Query("SELECT unique_id FROM DayZ_stats WHERE unique_id = '"..ply:SteamID() .. "'")
     if (result) then
         newCharacter(ply)
