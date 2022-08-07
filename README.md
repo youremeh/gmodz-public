@@ -1,6 +1,6 @@
 # Garry's Mod Day-Z Gamemode
 
-Edited by [Jay, The Creator](http://github.com/NotJayTheCreator)
+Edited by [youremeh](http://github.com/youremeh)
 
 # Install Instructions
 1. [Download the SQL files](https://github.com/FredyH/MySQLOO/releases) - Both Windows, and Linux users **NEED** to do this
