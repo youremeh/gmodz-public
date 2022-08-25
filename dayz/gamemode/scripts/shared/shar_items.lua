@@ -608,366 +608,6 @@ DayZItems[35] = {
 }
 
 DayZItems[36] = {
-    Name = "AK-47",
-    Desc = "An automatic rifle that takes Rifle Ammo",
-    Model = "models/weapons/w_rif_ak47.mdl",
-    Weight = 6.83,
-    CanBeSold = true,
-    Price = 2700,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_ak47",
-}
-
-DayZItems[37] = {
-    Name = "AUG",
-    Desc = "An automatic rifle that takes Rifle Ammo",
-    Model = "models/weapons/w_rif_aug.mdl",
-    Weight = 13.22,
-    CanBeSold = true,
-    Price = 3150,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_aug",
-}
-
-DayZItems[38] = {
-    Name = "AWP",
-    Desc = "A powerful bolt-action sniper rifle that takes Sniper Ammo",
-    Model = "models/weapons/w_snip_awp.mdl",
-    Weight = 13.22,
-    CanBeSold = true,
-    Price = 5000,
-    SpawnChance = 10,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_awp",
-}
-
-DayZItems[39] = {
-    Name = "Deagle",
-    Desc = "A powerful semi-auto pistol that takes Pistol Ammo",
-    Model = "models/weapons/w_pist_deagle.mdl",
-    Weight = 4.5,
-    CanBeSold = true,
-    Price = 700,
-    SpawnChance = 25,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_deagle",
-}
-
-DayZItems[40] = {
-    Name = "Dual Berettas",
-    Desc = "2 semi-auto pistols that take Pistol Ammo",
-    Model = "models/weapons/w_pist_elite.mdl",
-    Weight = 2.13,
-    CanBeSold = true,
-    Price = 1500,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_dualberettas",
-}
-
-DayZItems[41] = {
-    Name = "Famas",
-    Desc = "An automatic rifle that takes Rifle Ammo",
-    Model = "models/weapons/w_rif_famas.mdl",
-    Weight = 7.95,
-    CanBeSold = true,
-    Price = 2250,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_famas",
-}
-
-DayZItems[42] = {
-    Name = "FiveSeven",
-    Desc = "A semi-auto pistol that takes Pistol Ammo",
-    Model = "models/weapons/w_pist_fiveseven.mdl",
-    Weight = 1.60,
-    CanBeSold = true,
-    Price = 500,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_fiveseven",
-}
-
-DayZItems[43] = {
-    Name = "G3SG1",
-    Desc = "An automatic sniper that takes Sniper Ammo",
-    Model = "models/weapons/w_snip_g3sg1.mdl",
-    Weight = 9.70,
-    CanBeSold = true,
-    Price = 5000,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_g3sg1",
-}
-
-DayZItems[44] = {
-    Name = "Galil",
-    Desc = "An automatic rifle that takes Rifle Ammo",
-    Model = "models/weapons/w_rif_galil.mdl",
-    Weight = 9.59,
-    CanBeSold = true,
-    Price = 2000,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_galil",
-}
-
-DayZItems[45] = {
-    Name = "Glock",
-    Desc = "A semi-auto pistol that takes Pistol Ammo",
-    Model = "models/weapons/w_pist_glock18.mdl",
-    Weight = 0.71,
-    CanBeSold = true,
-    Price = 200,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_glock",
-}
-
-DayZItems[46] = {
-    Name = "M3 Super 90",
-    Desc = "A powerful pump shotgun that takes Shotgun Ammo",
-    Model = "models/weapons/w_shot_m3super90.mdl",
-    Weight = 7.20,
-    CanBeSold = true,
-    Price = 1200,
-    SpawnChance = 30,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_m3",
-}
-
-DayZItems[47] = {
-    Name = "M4A1",
-    Desc = "An automatic rifle that takes Rifle Ammo",
-    Model = "models/weapons/w_rif_m4a1.mdl",
-    Weight = 7.46,
-    CanBeSold = true,
-    Price = 3100,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_m4a1",
-}
-
-DayZItems[48] = {
-    Name = "M249",
-    Desc = "An automatic rifle that takes Rifle Ammo",
-    Model = "models/weapons/w_mach_m249para.mdl",
-    Weight = 17,
-    CanBeSold = true,
-    Price = 5200,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_m249",
-}
-
-DayZItems[49] = {
-    Name = "Mac-10",
-    Desc = "An automatic SMG that takes SMG Ammo",
-    Model = "models/weapons/w_smg_mac10.mdl",
-    Weight = 6.26,
-    CanBeSold = true,
-    Price = 1050,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_mac10",
-}
-
-DayZItems[50] = {
-    Name = "MP5",
-    Desc = "An automatic SMG that takes SMG Ammo",
-    Model = "models/weapons/w_smg_mp5.mdl",
-    Weight = 5.59,
-    CanBeSold = true,
-    Price = 1500,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_mp5",
-}
-
-DayZItems[51] = {
-    Name = "P90",
-    Desc = "An automatic SMG that takes SMG Ammo",
-    Model = "models/weapons/w_smg_p90.mdl",
-    Weight = 5.51,
-    CanBeSold = true,
-    Price = 2350,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_p90",
-}
-
-DayZItems[52] = {
-    Name = "P228",
-    Desc = "A semi-auto pistol that takes Pistol Ammo",
-    Model = "models/weapons/w_pist_p228.mdl",
-    Weight = 1.81,
-    CanBeSold = true,
-    Price = 300,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_p228",
-}
-
-DayZItems[53] = {
-    Name = "Scout",
-    Desc = "A bolt action sniper that takes Sniper Ammo",
-    Model = "models/weapons/w_snip_scout.mdl",
-    Weight = 14.48,
-    CanBeSold = true,
-    Price = 1700,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_scout",
-}
-
-DayZItems[54] = {
-    Name = "SG550",
-    Desc = "An sutomatic sniper that takes Sniper Ammo",
-    Model = "models/weapons/w_snip_sg550.mdl",
-    Weight = 3.72,
-    CanBeSold = true,
-    Price = 5000,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_sg550",
-}
-
-DayZItems[55] = {
-    Name = "SG552",
-    Desc = "An automatic rifle that takes Rifle Ammo",
-    Model = "models/weapons/w_rif_sg552.mdl",
-    Weight = 8.92,
-    CanBeSold = true,
-    Price = 2750,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_sg552",
-}
-
-DayZItems[56] = {
-    Name = "TMP",
-    Desc = "An automatic SMG that takes SMG Ammo",
-    Model = "models/weapons/w_smg_tmp.mdl",
-    Weight = 2.91,
-    CanBeSold = true,
-    Price = 1250,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_tmp",
-}
-
-DayZItems[57] = {
-    Name = "UMP-45",
-    Desc = "An automatic SMG that takes SMG Ammo",
-    Model = "models/weapons/w_smg_ump45.mdl",
-    Weight = 4.63,
-    CanBeSold = true,
-    Price = 1200,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_ump",
-}
-
-DayZItems[58] = {
-    Name = "USP-45",
-    Desc = "A semi-auto pistol that takes Pistol Ammo",
-    Model = "models/weapons/w_pist_usp.mdl",
-    Weight = 1.65,
-    CanBeSold = true,
-    Price = 200,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_usp",
-}
-
-DayZItems[59] = {
-    Name = "XM1014",
-    Desc = "A semi-auto shotgun that takes Shotgun Ammo",
-    Model = "models/weapons/w_shot_xm1014.mdl",
-    Weight = 8.42,
-    CanBeSold = true,
-    Price = 2000,
-    SpawnChance = 45,
-    SpawnOffset = Vector(0, 0, 1),
-    SpawnAngle = Angle(0, 0, 90),
-    LootType = "Weapon",
-    Gun = true,
-    Weapon = "lite_xm1014",
-}
-
-DayZItems[60] = {
     Name = "30x Rifle Ammo",
     Desc = "A box of rifle ammo",
     Model = "models/Items/BoxMRounds.mdl",
@@ -984,7 +624,7 @@ DayZItems[60] = {
     end
 }
 
-DayZItems[61] = {
+DayZItems[37] = {
     Name = "30x SMG Ammo",
     Desc = "A box of smg ammo",
     Model = "models/Items/BoxSRounds.mdl",
@@ -1001,7 +641,7 @@ DayZItems[61] = {
     end
 }
 
-DayZItems[62] = {
+DayZItems[38] = {
     Name = "5x Sniper Ammo",
     Desc = "A box of sniper ammo",
     Model = "models/Items/combine_rifle_cartridge01.mdl",
@@ -1018,7 +658,7 @@ DayZItems[62] = {
     end
 }
 
-DayZItems[63] = {
+DayZItems[39] = {
     Name = "20x Pistol Ammo",
     Desc = "A box of pistol ammo",
     Model = "models/Items/357ammo.mdl",
@@ -1035,7 +675,7 @@ DayZItems[63] = {
     end
 }
 
-DayZItems[64] = {
+DayZItems[40] = {
     Name = "10x Shotgun Shells",
     Desc = "A box of shotgun shells",
     Model = "models/Items/BoxBuckshot.mdl",
@@ -1052,7 +692,7 @@ DayZItems[64] = {
     end
 }
 
-DayZItems[65] = {
+DayZItems[41] = {
     Name = "Wood",
     Desc = "Used for crafting multiple items",
     Model = "models/Gibs/wood_gib01d.mdl",
@@ -1065,7 +705,7 @@ DayZItems[65] = {
     LootType = "Basic",
 }
 
-DayZItems[66] = {
+DayZItems[42] = {
     Name = "Scrap Metal",
     Desc = "Used for crafting multiple items",
     Model = "models/props_c17/TrapPropeller_Lever.mdl",
@@ -1078,7 +718,7 @@ DayZItems[66] = {
     LootType = "Basic",
 }
 
-DayZItems[67] = {
+DayZItems[43] = {
     Name = "Gun Powder",
     Desc = "Used to craft any type of ammo",
     Model = "models/props_junk/metal_paintcan001a.mdl",
@@ -1091,7 +731,7 @@ DayZItems[67] = {
     LootType = "Basic",
 }
 
-DayZItems[68] = {
+DayZItems[44] = {
     Name = "Weapon Part A",
     Desc = "Used to craft weapons",
     Model = "models/weapons/w_eq_eholster_elite.mdl",
@@ -1104,7 +744,7 @@ DayZItems[68] = {
     LootType = "Basic",
 }
 
-DayZItems[69] = {
+DayZItems[45] = {
     Name = "Weapon Part B",
     Desc = "Used to craft high tier weapons",
     Model = "models/weapons/w_defuser.mdl",
@@ -1117,7 +757,7 @@ DayZItems[69] = {
     SpawnAngle = Angle(0, 0, 90),
 }
 
-DayZItems[70] = {
+DayZItems[46] = {
     Name = "Mystery Box",
     Desc = "Does not contain teddy bears that we know of",
     Model = "models/items/item_item_crate.mdl",
@@ -1141,4 +781,364 @@ DayZItems[70] = {
         ply:PBroadcast(Color(255, 50, 50), "[DayZ] ", Color(255, 255, 255), "You unboxed ", Color(50, 255, 50), amount, Color(255, 255, 255), 'x ', Color(50, 255, 50), DayZItems[giveItem].Name)
         ply:GiveItem(giveItem, amount)
     end
+}
+
+DayZItems[47] = {
+    Name = "AK-47",
+    Desc = "An automatic rifle that takes Rifle Ammo",
+    Model = "models/weapons/w_rif_ak47.mdl",
+    Weight = 6.83,
+    CanBeSold = true,
+    Price = 2700,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_ak47",
+}
+
+DayZItems[48] = {
+    Name = "AUG",
+    Desc = "An automatic rifle that takes Rifle Ammo",
+    Model = "models/weapons/w_rif_aug.mdl",
+    Weight = 13.22,
+    CanBeSold = true,
+    Price = 3150,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_aug",
+}
+
+DayZItems[49] = {
+    Name = "AWP",
+    Desc = "A powerful bolt-action sniper rifle that takes Sniper Ammo",
+    Model = "models/weapons/w_snip_awp.mdl",
+    Weight = 13.22,
+    CanBeSold = true,
+    Price = 5000,
+    SpawnChance = 10,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_awp",
+}
+
+DayZItems[50] = {
+    Name = "Deagle",
+    Desc = "A powerful semi-auto pistol that takes Pistol Ammo",
+    Model = "models/weapons/w_pist_deagle.mdl",
+    Weight = 4.5,
+    CanBeSold = true,
+    Price = 700,
+    SpawnChance = 25,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_deagle",
+}
+
+DayZItems[51] = {
+    Name = "Dual Berettas",
+    Desc = "2 semi-auto pistols that take Pistol Ammo",
+    Model = "models/weapons/w_pist_elite.mdl",
+    Weight = 2.13,
+    CanBeSold = true,
+    Price = 1500,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_dualberettas",
+}
+
+DayZItems[52] = {
+    Name = "Famas",
+    Desc = "An automatic rifle that takes Rifle Ammo",
+    Model = "models/weapons/w_rif_famas.mdl",
+    Weight = 7.95,
+    CanBeSold = true,
+    Price = 2250,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_famas",
+}
+
+DayZItems[53] = {
+    Name = "FiveSeven",
+    Desc = "A semi-auto pistol that takes Pistol Ammo",
+    Model = "models/weapons/w_pist_fiveseven.mdl",
+    Weight = 1.60,
+    CanBeSold = true,
+    Price = 500,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_fiveseven",
+}
+
+DayZItems[54] = {
+    Name = "G3SG1",
+    Desc = "An automatic sniper that takes Sniper Ammo",
+    Model = "models/weapons/w_snip_g3sg1.mdl",
+    Weight = 9.70,
+    CanBeSold = true,
+    Price = 5000,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_g3sg1",
+}
+
+DayZItems[55] = {
+    Name = "Galil",
+    Desc = "An automatic rifle that takes Rifle Ammo",
+    Model = "models/weapons/w_rif_galil.mdl",
+    Weight = 9.59,
+    CanBeSold = true,
+    Price = 2000,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_galil",
+}
+
+DayZItems[56] = {
+    Name = "Glock",
+    Desc = "A semi-auto pistol that takes Pistol Ammo",
+    Model = "models/weapons/w_pist_glock18.mdl",
+    Weight = 0.71,
+    CanBeSold = true,
+    Price = 200,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_glock",
+}
+
+DayZItems[57] = {
+    Name = "M3 Super 90",
+    Desc = "A powerful pump shotgun that takes Shotgun Ammo",
+    Model = "models/weapons/w_shot_m3super90.mdl",
+    Weight = 7.20,
+    CanBeSold = true,
+    Price = 1200,
+    SpawnChance = 30,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_m3",
+}
+
+DayZItems[58] = {
+    Name = "M4A1",
+    Desc = "An automatic rifle that takes Rifle Ammo",
+    Model = "models/weapons/w_rif_m4a1.mdl",
+    Weight = 7.46,
+    CanBeSold = true,
+    Price = 3100,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_m4a1",
+}
+
+DayZItems[59] = {
+    Name = "M249",
+    Desc = "An automatic rifle that takes Rifle Ammo",
+    Model = "models/weapons/w_mach_m249para.mdl",
+    Weight = 17,
+    CanBeSold = true,
+    Price = 5200,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_m249",
+}
+
+DayZItems[60] = {
+    Name = "Mac-10",
+    Desc = "An automatic SMG that takes SMG Ammo",
+    Model = "models/weapons/w_smg_mac10.mdl",
+    Weight = 6.26,
+    CanBeSold = true,
+    Price = 1050,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_mac10",
+}
+
+DayZItems[61] = {
+    Name = "MP5",
+    Desc = "An automatic SMG that takes SMG Ammo",
+    Model = "models/weapons/w_smg_mp5.mdl",
+    Weight = 5.59,
+    CanBeSold = true,
+    Price = 1500,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_mp5",
+}
+
+DayZItems[62] = {
+    Name = "P90",
+    Desc = "An automatic SMG that takes SMG Ammo",
+    Model = "models/weapons/w_smg_p90.mdl",
+    Weight = 5.51,
+    CanBeSold = true,
+    Price = 2350,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_p90",
+}
+
+DayZItems[63] = {
+    Name = "P228",
+    Desc = "A semi-auto pistol that takes Pistol Ammo",
+    Model = "models/weapons/w_pist_p228.mdl",
+    Weight = 1.81,
+    CanBeSold = true,
+    Price = 300,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_p228",
+}
+
+DayZItems[64] = {
+    Name = "Scout",
+    Desc = "A bolt action sniper that takes Sniper Ammo",
+    Model = "models/weapons/w_snip_scout.mdl",
+    Weight = 14.48,
+    CanBeSold = true,
+    Price = 1700,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_scout",
+}
+
+DayZItems[65] = {
+    Name = "SG550",
+    Desc = "An sutomatic sniper that takes Sniper Ammo",
+    Model = "models/weapons/w_snip_sg550.mdl",
+    Weight = 3.72,
+    CanBeSold = true,
+    Price = 5000,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_sg550",
+}
+
+DayZItems[66] = {
+    Name = "SG552",
+    Desc = "An automatic rifle that takes Rifle Ammo",
+    Model = "models/weapons/w_rif_sg552.mdl",
+    Weight = 8.92,
+    CanBeSold = true,
+    Price = 2750,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_sg552",
+}
+
+DayZItems[67] = {
+    Name = "TMP",
+    Desc = "An automatic SMG that takes SMG Ammo",
+    Model = "models/weapons/w_smg_tmp.mdl",
+    Weight = 2.91,
+    CanBeSold = true,
+    Price = 1250,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_tmp",
+}
+
+DayZItems[68] = {
+    Name = "UMP-45",
+    Desc = "An automatic SMG that takes SMG Ammo",
+    Model = "models/weapons/w_smg_ump45.mdl",
+    Weight = 4.63,
+    CanBeSold = true,
+    Price = 1200,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_ump",
+}
+
+DayZItems[69] = {
+    Name = "USP-45",
+    Desc = "A semi-auto pistol that takes Pistol Ammo",
+    Model = "models/weapons/w_pist_usp.mdl",
+    Weight = 1.65,
+    CanBeSold = true,
+    Price = 200,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_usp",
+}
+
+DayZItems[70] = {
+    Name = "XM1014",
+    Desc = "A semi-auto shotgun that takes Shotgun Ammo",
+    Model = "models/weapons/w_shot_xm1014.mdl",
+    Weight = 8.42,
+    CanBeSold = true,
+    Price = 2000,
+    SpawnChance = 45,
+    SpawnOffset = Vector(0, 0, 1),
+    SpawnAngle = Angle(0, 0, 90),
+    LootType = "Weapon",
+    Gun = true,
+    Weapon = "lite_xm1014",
 }
