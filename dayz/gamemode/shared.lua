@@ -1,7 +1,16 @@
 GM.Name = "GMod-Z"
-GM.Author = "Jay"
+GM.Author = "youremeh @ GitHub"
 GM.Email = "N/A"
-GM.Website = "N/A"
+GM.Website = "https://discord.gg/HJEBugJ4aA"
+
+--[[
+    True = You use M9K as the weapon base for this gamemode
+    False = You use another type of weapon base for this gamemode
+
+    UNTESTED IF YOU CAN CHANGE THIS ON THE FLY
+    YOU PROBABLY CAN THO
+]]
+UseM9K = false
 
 --[[
     True = Players need to go inside the building to use the shop
@@ -61,7 +70,8 @@ BackPackMulti = 1.5
 team.SetUp(1, "Survivor", Color(0, 0, 0, 80))
 
 PlayerTitle = {}
-PlayerTitle["STEAM_0:0:423125380"] = "Developer"
+PlayerTitle["STEAM_0:0:423125380"] = "Developer" --[[ Leave this please <3 ]]
+--PlayerTitle["YOUR_STEAM:ID:HERE"] = "Your Rank Here"
 
 PlayerRank = {}
 PlayerRank[-1]  = {Name = "Banned",    Clr = Color(0, 0, 0),       CreditGain = 0,   InventorySpaceMulti = 0,   BankSpaceMulti = 0}
@@ -70,7 +80,7 @@ PlayerRank[1]   = {Name = "VIP",       Clr = Color(205, 127, 50),  CreditGain = 
 PlayerRank[95]  = {Name = "Moderator", Clr = Color(233, 30, 99),   CreditGain = 50,  InventorySpaceMulti = 2,   BankSpaceMulti = 2}
 PlayerRank[96]  = {Name = "Admin",     Clr = Color(233, 30, 99),   CreditGain = 50,  InventorySpaceMulti = 2.5, BankSpaceMulti = 2.5}
 PlayerRank[99]  = {Name = "Developer", Clr = Color(233, 30, 99),   CreditGain = 0,   InventorySpaceMulti = 5,   BankSpaceMulti = 5}
-PlayerRank[100] = {Name = "Director",  Clr = Color(233, 30, 99),   CreditGain = 0,   InventorySpaceMulti = 5,   BankSpaceMulti = 5}
+PlayerRank[100] = {Name = "Founder",   Clr = Color(233, 30, 99),   CreditGain = 0,   InventorySpaceMulti = 5,   BankSpaceMulti = 5}
 
 EMETA = FindMetaTable("Entity")
 function EMETA:inSafeZone()

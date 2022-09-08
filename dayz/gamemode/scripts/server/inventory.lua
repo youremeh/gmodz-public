@@ -1,5 +1,3 @@
-UseM9K = false
-
 PMETA = FindMetaTable("Player")
 util.AddNetworkString("UpdateInventory")
 util.AddNetworkString("UpdateItem")
