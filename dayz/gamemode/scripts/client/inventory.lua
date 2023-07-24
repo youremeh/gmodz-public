@@ -107,8 +107,6 @@ function createInventoryButton(w, h, item, quantity, sellshop, sellprice)
         draw.DrawText("x"..quantity, "DebugFixed", 2, 16, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
         if DayZItems[item].Weight and DayZItems[item].Weight > 0 then
             weightText = ("Weight: "..DayZItems[item].Weight * quantity)
-        else
-            weightText = ("")
         end
         draw.DrawText(weightText, "DebugFixed", 5, h / 1.2, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
         if(sellshop) then draw.DrawText("$" .. (sellprice or 0), "DebugFixed", 2, 28, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT) end
