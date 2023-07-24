@@ -248,13 +248,15 @@ function drawPlayerHud()
             end
         end
     end
-    if LocalPlayer().Money then
-        surface.SetMaterial(Material("icons/background_cracks"))
-        surface.SetDrawColor(Color(0, 0, 0, 230))
-        surface.DrawTexturedRectUV(SW - 300, SH - 30, 300, 40, 0, 0, 0.3, 0.04)
-        draw.DrawText("$"..LocalPlayer().Money, "TargetIDMedium", SW - 250, SH - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
-        draw.DrawText("XP:"..LocalPlayer().XP, "TargetIDMedium", SW - 50, SH - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
-        draw.DrawText("Credits:"..LocalPlayer().Credits, "TargetIDMedium", SW - 150, SH - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+    if LocalPlayer().InSafeZone then
+        if LocalPlayer().Money then
+            surface.SetMaterial(Material("icons/background_cracks"))
+            surface.SetDrawColor(Color(0, 0, 0, 230))
+            surface.DrawTexturedRectUV(SW - 300, SH - 30, 300, 40, 0, 0, 0.3, 0.04)
+            draw.DrawText("$"..LocalPlayer().Money, "TargetIDMedium", SW - 250, SH - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+            draw.DrawText("XP:"..LocalPlayer().XP, "TargetIDMedium", SW - 50, SH - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+            draw.DrawText("Credits:"..LocalPlayer().Credits, "TargetIDMedium", SW - 150, SH - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+        end
     end
 end
 hook.Add("HUDPaint", "drawPlayerHud", drawPlayerHud)
