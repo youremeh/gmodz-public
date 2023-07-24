@@ -172,7 +172,7 @@ DayZItems[11] = {
 
 DayZItems[12] = {
     Name = "Fish",
-    Desc = "Smells like my ex girlfriend",
+    Desc = "Smells like my ex-girlfriend",
     Model = "models/props/cs_militia/fishriver01.mdl",
     Weight = 2,
     LootType = "Basic",
@@ -430,7 +430,7 @@ DayZItems[25] = {
 
 DayZItems[26] = {
     Name = "Water Bottle",
-    Desc = "Not bath water",
+    Desc = "Not bath water (that we know of)",
     Model = "models/props/cs_office/water_bottle.mdl",
     Weight = 0.02,
     CanBeSold = true,
@@ -444,7 +444,7 @@ DayZItems[26] = {
 }
 
 DayZItems[27] = {
-    Name = "Market Table A",
+    Name = "Market Table",
     Desc = "Place this table and press F3 on it to sell items",
     Model = "models/props/cs_italy/it_mkt_table1.mdl",
     Weight = 0,
@@ -576,7 +576,7 @@ DayZItems[33] = {
 }
 
 DayZItems[34] = {
-    Name = "Market Table B",
+    Name = "Market Table",
     Desc = "Place this table and press F3 on it to sell items",
     Model = "models/props/CS_militia/table_shed.mdl",
     Weight = 1,
@@ -820,7 +820,7 @@ DayZItems[49] = {
     Weight = 13.22,
     CanBeSold = true,
     Price = 5000,
-    SpawnChance = 10,
+    SpawnChance = 2,
     SpawnOffset = Vector(0, 0, 1),
     SpawnAngle = Angle(0, 0, 90),
     LootType = "Weapon",
@@ -835,7 +835,7 @@ DayZItems[50] = {
     Weight = 4.5,
     CanBeSold = true,
     Price = 700,
-    SpawnChance = 25,
+    SpawnChance = 2,
     SpawnOffset = Vector(0, 0, 1),
     SpawnAngle = Angle(0, 0, 90),
     LootType = "Weapon",
