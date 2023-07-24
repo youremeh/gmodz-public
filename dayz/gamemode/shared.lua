@@ -65,7 +65,7 @@ DefaultBankSpace = 500
     THIS CAN BE CHANGED ON THE FLY
     KEEP THIS ABOVE 1.0, OTHERWISE NOTHING WILL HAPPEN
 ]]
-BackPackMulti = 1.5
+BackPackMulti = 2.0
 
 team.SetUp(1, "Survivor", Color(0, 0, 0, 80))
 
