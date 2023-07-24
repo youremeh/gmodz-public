@@ -47,7 +47,9 @@ function SpawnLoot()
                 break
             end
         end
-        if (DayZItems[SpawnedItemID] and math.random(0, 100) <= DayZItems[SpawnedItemID].SpawnChance) then spawnItem(SpawnedItemID, SpawnPos) end
+        if DayZItems[SpawnedItemID] then
+            spawnItem(SpawnedItemID, SpawnPos)
+        end
     end
 end
 
