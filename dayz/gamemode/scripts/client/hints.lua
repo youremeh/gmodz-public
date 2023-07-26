@@ -39,9 +39,7 @@ function HINTPaint()
         if TipAddInc == true then
             if TipAlpha < 255 then TipAlpha = TipAlpha + 3 end
         else
-            if TipAlpha > 0 then
-                TipAlpha = TipAlpha - 3
-            end
+            if TipAlpha > 0 then TipAlpha = TipAlpha - 3 end
         end
         draw.DrawText("Tip: "..Tip_String, "Trebuchet24", ScrW() / 2, ScrH() - 150, Color(255, 255, 255, TipAlpha), TEXT_ALIGN_CENTER)
     end

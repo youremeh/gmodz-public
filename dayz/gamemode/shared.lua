@@ -6,9 +6,6 @@ GM.Website = "https://discord.gg/HJEBugJ4aA"
 --[[
     True = You use M9K as the weapon base for this gamemode
     False = You use another type of weapon base for this gamemode
-
-    UNTESTED IF YOU CAN CHANGE THIS ON THE FLY
-    YOU PROBABLY CAN THO
 ]]
 UseM9K = false
 
@@ -16,7 +13,7 @@ UseM9K = false
     True = Players need to go inside the building to use the shop
     False = Players can press F2 while inside SafeZone to use the shop
 
-    YOU CANNOT CHANGE THIS ON THE FLY (True statement creates an entity and can only be spawned at the start of gamemode init)
+    YOU CANNOT CHANGE THIS ON THE FLY (True creates an entity and can only be spawned at the start of gamemode init)
     IF CHANGED, YOU NEED TO RESTART THE MAP
 ]]
 UseNewShop = true
@@ -25,7 +22,7 @@ UseNewShop = true
     True = Ignores InventorySpaceMulti entirely and use DefaultInventorySpace to set inventory space number
     False = Use the InventorySpaceMulti and adjust inventory size based on player rank
 
-    THIS CAN BE CHANGED ON THE FLY (True statement just changes inventory numbers)
+    THIS CAN BE CHANGED ON THE FLY (True just changes inventory numbers)
     HOWEVER BE CAREFUL. PLAYERS MIGHT NOTT LIKE THE TRUE VERSION
 ]]
 UseStaticInventorySpace = false
@@ -44,7 +41,7 @@ DefaultInventorySpace = 100
     True = Ignores BankSpaceMulti entirely and use DefaultBankSpace set bank space number
     False = Use the BankSpaceMulti and adjust bank size based on player rank
 
-    THIS CAN BE CHANGED ON THE FLY (True statement just changes bank numbers)
+    THIS CAN BE CHANGED ON THE FLY (True just changes bank numbers)
     HOWEVER BE CAREFUL. PLAYERS MIGHT NOT LIKE THE TRUE VERSION
 ]]
 UseStaticBankSpace = false
@@ -60,12 +57,28 @@ UseStaticBankSpace = false
 DefaultBankSpace = 500
 
 --[[
-    The multiplier for players who have a Large Back (Item ID: 24)
+    The multiplier for players who have a large backpack (Item ID: 24)
 
     THIS CAN BE CHANGED ON THE FLY
     KEEP THIS ABOVE 1.0, OTHERWISE NOTHING WILL HAPPEN
 ]]
 BackPackMulti = 2.0
+
+--[[
+    If someone has a combat timer, this will kill them when they
+    attempt to enter the safezone
+
+    THIS CAN BE CHANGED ON THE FLY
+]]
+SZKillWithTimer = false
+
+--[[
+    Will cause an explosion if the above is set to true
+
+    THIS CAN BE CHANGED ON THE FLY
+    SZKillWithTimer NEEDS TO BE SET TO TRUE FOR THIS TO WORK
+]]
+SZKillExplosion = false
 
 team.SetUp(1, "Survivor", Color(0, 0, 0, 80))
 

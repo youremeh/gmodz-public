@@ -297,7 +297,7 @@ function craftMenu(frame)
             statPanels[i]:SetPos(tabX, tabY)
             statPanels[i].Paint = function() end
         end
-        DPropSheet_CraftContents:AddSheet("Basics", DPanel_Basic_Tab, "icon16/medal_bronze_1.png", true, true, "Craft basics items")
+        DPropSheet_CraftContents:AddSheet("Basic", DPanel_Basic_Tab, "icon16/medal_bronze_1.png", true, true, "Craft basics items")
         DPropSheet_CraftContents:AddSheet("Advanced", DPanel_Intermediate_Tab, "icon16/medal_silver_1.png", true, true, "Craft advanced items")
         DPropSheet_CraftContents:AddSheet("Legendary", DPanel_Luxury_Tab, "icon16/medal_gold_1.png", true, true, "Craft legendary items")
         for i = 1, table.Count(DPropSheet_CraftContents.Items) do
@@ -475,6 +475,7 @@ function ClientKeyPress()
     end
 end
 hook.Add("Think", "ClientKeyPress", ClientKeyPress)
+
 hook.Add("OnSpawnMenuOpen", "OnSpawnMenuOpen11", function() MainMenu() end)
 hook.Add("OnSpawnMenuClose", "OnSpawnMenuClose11", function()
     if(dFrame_Main_Menu)then

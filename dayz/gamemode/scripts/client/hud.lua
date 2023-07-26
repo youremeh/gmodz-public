@@ -123,7 +123,7 @@ function HelpMarker()
         local screenPos = Loc:ToScreen()
         local distance = Loc:Distance(LocalPlayer():GetPos())
         local distM = math.Round(distance * 0.01905)
-        if(Loc and Loc:Distance(LocalPlayer():GetPos()) >= 5 + (safeZoneTbl[i].Radius or 0)) then
+        if (Loc and Loc:Distance(LocalPlayer():GetPos()) >= 5 + (safeZoneTbl[i].Radius or 0)) then
             draw.DrawText("SafeZone", "ChatFont", screenPos.x, screenPos.y - 50, Color(0, 150, 0, distM * 20), TEXT_ALIGN_CENTER)
             draw.DrawText(distM.."m", "ChatFont", screenPos.x, screenPos.y - 36, Color(0, 150, 0, distM * 20), TEXT_ALIGN_CENTER)
         else

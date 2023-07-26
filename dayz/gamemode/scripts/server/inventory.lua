@@ -227,13 +227,13 @@ function PMETA:TakeItem(itemID, amount)
     self:UpdateItem(itemID)
 end
 
-concommand.Add("useitem", function(ply, cmd, args) ply:UseItem(itemID) end)
 function PMETA:UseItem(itemID)
     if not self:Alive() then return end
     if not self:HasItem(itemID) then return end
     local useItem = DayZItems[itemID].useFunc(self, itemID)
     if not useItem then self:TakeItem(itemID, 1) end
 end
+concommand.Add("useitem", function(ply, cmd, args) ply:UseItem(itemID) end)
 
 net.Receive("CL_UseItem", function(len, ply)
     ply:UseItem(net.ReadUInt(14))

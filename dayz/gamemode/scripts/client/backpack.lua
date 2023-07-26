@@ -26,7 +26,7 @@ function lootMenu(crate)
         if crate then
             draw.DrawText("Supply crate", "DebugFixedLarge", 10, 10, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
         else
-            draw.DrawText("Dead Player's Backpack", "DebugFixedLarge", 10, 10, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
+            draw.DrawText("Loot bag", "DebugFixedLarge", 10, 10, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
         end
     end
     if DPanelList_Backpack_Contents and DPanelList_Backpack_Contents:IsValid() then DPanelList_Backpack_Contents:Remove() end

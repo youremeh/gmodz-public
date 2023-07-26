@@ -16,14 +16,19 @@ end
 local function CheckKillTimer()
 	for k,v in pairs(player.GetAll()) do
 		if v.KillTimer and v.KillTimer > CurTime() and v:inSafeZone() then
-			--v:Kill()
-			--local vPoint = v:GetPos()
-			--local effectdata = EffectData()
-			--effectdata:SetStart(vPoint)
-			--effectdata:SetOrigin(vPoint)
-			--effectdata:SetScale(1)
-			--util.Effect("HelicopterMegaBomb", effectdata)
-			v:SetPos(table.Random(Spawns[string.lower(game.GetMap())]) + Vector(0, 0, 30))
+			if SZKillWithTimer then
+				v:Kill()
+				if SZKillExplosion then
+					local vPoint = v:GetPos()
+					local effectdata = EffectData()
+					effectdata:SetStart(vPoint)
+					effectdata:SetOrigin(vPoint)
+					effectdata:SetScale(1)
+					util.Effect("HelicopterMegaBomb", effectdata)
+				end
+			else
+				v:SetPos(table.Random(Spawns[string.lower(game.GetMap())]) + Vector(0, 0, 30))
+			end
 			v:PBroadcast(Color(255, 50, 50), "[DayZ] ", Color(255, 255, 255), "You have a Combat Timer and cannot enter the SafeZone.")
 		end
 	end
@@ -32,7 +37,7 @@ timer.Create("CheckKillTimer", 1, 0, CheckKillTimer)
 
 function GM:PlayerDisconnected(ply)
 	if ply.KillTimer and ply.KillTimer > CurTime() then
-		GBroadcast(Color(255, 50, 50), "[DayZ] ", Color(255, 255, 255), ply:Nick()..' tried to Combat Log and was killed.')
+		GBroadcast(Color(255, 50, 50), "[DayZ] ", Color(255, 255, 255), ply:Nick()..' tried to combat log and was killed.')
 		ply:Kill()
 	end
 end
