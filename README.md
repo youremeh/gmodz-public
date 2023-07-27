@@ -72,4 +72,4 @@ A: Read the above answer.
 A: No. You will have to download the games (CS:S, HL2, TF2) and find the respective folders and do it yourself. Or you can do a simple google search and find a website that hosts them.
 
 #### Q: Can you make me a server?  
-A: No. I don't play Garry's Mod let alone want to get back into coding for it.
+A: No.
