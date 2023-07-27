@@ -4,9 +4,6 @@ local XP_Amount = 0
 local MoneyAddInc = false
 local MoneyPos = 0
 local Money_Amount = 0
-local TipAddInc = false
-local TipAlpha = 0
-local Tip_String = ""
 
 function HINTPaint()
     if LocalPlayer():IsValid() then
@@ -35,13 +32,7 @@ function HINTPaint()
         surface.SetMaterial(Material("icons/background_cracks"))
         surface.SetDrawColor(Color(0, 0, 0, MoneyPos * 0.8))
         surface.DrawTexturedRectUV(x, y, w, h, 0, 0, w * 0.001, h * 0.001)
-        draw.DrawText("$"..Money_Amount.." Picked up", "Trebuchet24", 25, (ScrH() / 1.5) + 6, Color(255, 255, 255, MoneyPos), TEXT_ALIGN_LEFT)
-        if TipAddInc == true then
-            if TipAlpha < 255 then TipAlpha = TipAlpha + 3 end
-        else
-            if TipAlpha > 0 then TipAlpha = TipAlpha - 3 end
-        end
-        draw.DrawText("Tip: "..Tip_String, "Trebuchet24", ScrW() / 2, ScrH() - 150, Color(255, 255, 255, TipAlpha), TEXT_ALIGN_CENTER)
+        draw.DrawText("$"..Money_Amount.." picked up", "Trebuchet24", 25, (ScrH() / 1.5) + 6, Color(255, 255, 255, MoneyPos), TEXT_ALIGN_LEFT)
     end
 end
 hook.Add("HUDPaint", "PaintOurHint", HINTPaint)
@@ -58,9 +49,3 @@ function Money_CL(umsg)
     timer.Simple(4, function() MoneyAddInc = false end)
 end
 usermessage.Hook("Money_CL", Money_CL)
-
-net.Receive("TipSend", function(len)
-    Tip_String = net.ReadString()
-    TipAddInc = true
-    timer.Simple(4, function() TipAddInc = false end)
-end)
