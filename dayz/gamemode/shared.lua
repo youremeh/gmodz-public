@@ -35,7 +35,7 @@ UseStaticInventorySpace = false
 
     THIS CAN BE CHANGED ON THE FLY
 ]]
-DefaultInventorySpace = 100
+DefaultInventorySpace = 50
 
 --[[
     True = Ignores BankSpaceMulti entirely and use DefaultBankSpace set bank space number
