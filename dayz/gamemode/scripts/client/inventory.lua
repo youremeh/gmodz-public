@@ -258,12 +258,13 @@ function Inventory_List(frame)
                 if DayZItems[ItemID].useFunc then
                     itemOptions:AddOption("Use Item", function() sendMessage("CL_UseItem", ItemID, 1) end)
                 end
-                if DayZItems[ItemID].Placeable then
+                --if DayZItems[ItemID].Placeable then
                     itemOptions:AddOption("Place Item", function()
                         placeItem(ItemID)
                         if (dFrame_Main_Menu and dFrame_Main_Menu:IsValid()) then dFrame_Main_Menu:Remove() end
                     end)
-                else
+                --else
+                if not DayZItems[ItemID].Barricade then
                     itemOptions:AddOption("Drop Item", function()
                         if DayZItems[ItemID].ClipSize then
                             amountPopupInventory(ItemID, quantity, "CL_DropItem")
@@ -274,6 +275,7 @@ function Inventory_List(frame)
                         end
                     end)
                 end
+                --end
                 itemOptions:Open(gui.MousePos())
             end
             dModelPanel_Item.DoRightClick = function()
@@ -375,7 +377,7 @@ end
 
 function amountPopupInventory(item, maxValue, consoleString, widthMoney)
     if not maxValue then maxValue = 1 end
-    local boxWidth, boxHeight = 300, 150
+    local boxWidth, boxHeight = 300, 100
     if(widthMoney and widthMoney > 0) then boxWidth = widthMoney end
     local DFrame_ItemAmount = vgui.Create("DFrame")
     DFrame_ItemAmount:SetSize(boxWidth, boxHeight)
@@ -391,14 +393,14 @@ function amountPopupInventory(item, maxValue, consoleString, widthMoney)
     end
     local DNumSlider_Amount = vgui.Create("DNumSlider", DFrame_ItemAmount)
     DNumSlider_Amount:SetWide(525)
-    DNumSlider_Amount:SetPos(-200, 50)
+    DNumSlider_Amount:SetPos(-200, 25)
     DNumSlider_Amount:SetText("")
     DNumSlider_Amount:SetMin(1)
     DNumSlider_Amount:SetMax(maxValue)
     DNumSlider_Amount:SetDecimals(0)
     DNumSlider_Amount:SetValue(1)
     local buttonWidth, buttonHeight = 200, 35
-    local buttonX, buttonY = boxWidth * 0.5 - buttonWidth * 0.5, boxHeight * 0.7
+    local buttonX, buttonY = boxWidth * 0.5 - buttonWidth * 0.5, boxHeight * 0.6
     local DButton_Confirm = createButton(DFrame_ItemAmount, buttonX, buttonY, buttonWidth, buttonHeight, "Confirm")
     DButton_Confirm.DoClick = function()
         sendMessage(consoleString, item, DNumSlider_Amount:GetValue())
