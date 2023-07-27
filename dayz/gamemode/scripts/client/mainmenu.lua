@@ -457,11 +457,11 @@ hook.Add("HUDPaint", "CraftHUDPaint", function()
         local c = 1
         for k, v in pairs(LocalPlayer().Crafts) do
             if v[2] + v[3] < CurTime() then LocalPlayer().Crafts[k] = nil continue end
-            surface.SetDrawColor(Color(0, 0, 0, 200))
+            surface.SetDrawColor(Color(80, 80, 80, 230))
             surface.DrawRect(ScrW() - 300, ScrH() - 60 - (c - 1) * 30, 300, 30)
             surface.SetDrawColor(Color(0, 0, 0, 230))
             surface.DrawRect(ScrW() - 300, ScrH() - 60 - (c - 1) * 30, (v[3] + v[2] - CurTime()) / v[2] * 300, 30)
-            draw.DrawText(DayZItems[v[1]].Name, "Trebuchet18", ScrW() - 290, ScrH() - 55 - (c - 1) * 30, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
+            draw.DrawText("Crafting a "..DayZItems[v[1]].Name, "Trebuchet18", ScrW() - 290, ScrH() - 55 - (c - 1) * 30, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
             c = c + 1
         end
     end
