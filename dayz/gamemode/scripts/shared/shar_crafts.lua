@@ -13,20 +13,6 @@
 DayZCraft = {}
 DayZCraft["craft_basics"] = {
     {
-        27, -- Market Table
-        30, -- Time to craft
-        {
-            {
-                41, -- First required item
-                10 -- Amount needed
-            },
-            {
-                33, -- Second required item
-                1 -- Amount needed
-            }
-        }
-    },
-    {
         28,
         30,
         {
