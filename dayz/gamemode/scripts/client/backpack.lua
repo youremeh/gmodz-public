@@ -8,8 +8,6 @@ net.Receive("CloseBackpack", function(len)
     if DFrame_LootMenu and DFrame_LootMenu:IsValid() then DFrame_LootMenu:Remove() end
 end)
 
-net.Receive("OpenBackpack", function(len) lootMenu(tobool(tonumber(net.ReadUInt(1)))) end)
-
 function lootMenu(crate)
     if DFrame_LootMenu and DFrame_LootMenu:IsValid() then DFrame_LootMenu:Remove() end
     DFrame_LootMenu = vgui.Create("DFrame")
@@ -48,3 +46,4 @@ function lootMenu(crate)
         end
     end
 end
+net.Receive("OpenBackpack", function(len) lootMenu(tobool(tonumber(net.ReadUInt(1)))) end)
