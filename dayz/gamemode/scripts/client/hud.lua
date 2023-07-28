@@ -1,33 +1,40 @@
-surface.CreateFont("AmmoType1", {font = "TargetID", size = 60, weight = 600})
-surface.CreateFont("AmmoType2", {font = "TargetID", size = 35, weight = 600})
-surface.CreateFont("TargetIDWeighted", {font = "Trebuchet24", weight = 1000, size = 18})
-surface.CreateFont("TargetIDLarge", {font = "TargetID", size = 40, weight = 600})
-surface.CreateFont("TargetIDMedium", {font = "TargetID", size = 20, weight = 600})
-surface.CreateFont("TargetIDSmall", {font = "TargetID", size = 15, weight = 400})
+surface.CreateFont("AmmoType1",         {font = "TargetID",     size = 60, weight = 600})
+surface.CreateFont("AmmoType2",         {font = "TargetID",     size = 35, weight = 600})
+surface.CreateFont("TargetIDWeighted",  {font = "Trebuchet24",  size = 18, weight = 1000})
+surface.CreateFont("TargetIDLarge",     {font = "TargetID",     size = 40, weight = 600})
+surface.CreateFont("TargetIDMedium",    {font = "TargetID",     size = 20, weight = 600})
+surface.CreateFont("TargetIDSmall",     {font = "TargetID",     size = 15, weight = 400})
 
-local deathMsg = ""
-local deathLMBMsg = ""
-PlayerPerks = PlayerPerks or {}
+local mat_background_cracks = Material("icons/background_cracks")
+local mat_minimap = Material("icons/minimap")
+local mat_hudBorder = Material("icons/HUDborder")
+local mat_hungerthirst = Material("icons/hungerthirst")
+local mat_char_icons = Material("icons/character_icons")
+local mat_char_sprint = Material("icons/character_sprint")
+local mat_hunger_left = Material("icons/hungerleft")
+local mat_thirst_right = Material("icons/thirstright")
+local mat_char_inside = Material("icons/character_inside")
+local mat_char_border = Material("icons/character_border")
+local mat_pickup = Material("icons/pickup")
+
+local deathMsg, deathLMBMsg = "", ""
 net.Receive("DeathMessage", function(len)
     deathMsg = net.ReadString()
     surface.PlaySound("music/death.wav")
-    timer.Simple(5, function() deathLMBMsg = "Press LMB to respawn" end)
+    timer.Simple(5, function() deathLMBMsg = "Press LEFT MOUSE to respawn" end)
 end)
 
 function GM:DrawDeathNotice(x, y)
     local SW, SH = ScrW(), ScrH()
     if LocalPlayer():Health() <= 0 then
-        local DeadBoxW = 600
-        local DeadBoxH = 150
-        local halfDeadBoxW = DeadBoxW * 0.5
-        local halfDeadBoxH = DeadBoxH * 0.5
-        local halfSW = SW * 0.5
-        local halfSH = SH * 0.5
+        local DeadBoxW, DeadBoxH = 600, 150
+        local halfDeadBoxW, halfDeadBoxH = DeadBoxW * 0.5, DeadBoxH * 0.5
+        local halfSW, halfSH = SW * 0.5, SH * 0.5
         draw.RoundedBox(10, 0, 0, ScrW(), ScrH(), Color(0, 0, 0, 255))
-        surface.SetMaterial(Material("icons/background_cracks"))
+        surface.SetMaterial(mat_background_cracks)
         surface.SetDrawColor(Color(120, 120, 120, 80))
         surface.DrawTexturedRectUV(halfSW - halfDeadBoxW, halfSH - halfDeadBoxH, DeadBoxW, DeadBoxH, 0, 0, DeadBoxW * 0.005, DeadBoxH * 0.005)
-        surface.SetMaterial(Material("icons/background_cracks"))
+        surface.SetMaterial(mat_background_cracks)
         surface.SetDrawColor(Color(180, 20, 20, 255))
         surface.DrawTexturedRectUV(halfSW - halfDeadBoxW, halfSH - halfDeadBoxH, DeadBoxW, 2, 0, 0, DeadBoxW * 0.002, 2 * 0.002)
         surface.DrawTexturedRectUV(halfSW - halfDeadBoxW, halfSH + halfDeadBoxH, DeadBoxW, 2, 0, 0, DeadBoxW * 0.002, 2 * 0.002)
@@ -41,10 +48,7 @@ function GM:DrawDeathNotice(x, y)
     end
 end
 
-local SolidGreen = Color(85, 180, 55, 255)
-local SolidRed = Color(175, 0, 0, 255)
-local TransGreen = Color(85, 150, 55, 150)
-local TransGrey = Color(75, 75, 75, 200)
+local SolidGreen, SolidRed, TransGreen, TransGrey = Color(85, 180, 55, 255), Color(175, 0, 0, 255), Color(85, 150, 55, 150), Color(75, 75, 75, 200)
 local bottomPos = ScrH()
 local iconSize = 72
 function drawIndicatorIcons()
@@ -76,7 +80,7 @@ function drawIndicatorIcons()
     for i = 1, 4 do
         iconPos = (i - 1) * 80
         surface.SetDrawColor(TransGreen)
-        surface.SetMaterial(Material("icons/HUDborder"))
+        surface.SetMaterial(mat_hudBorder)
         surface.DrawTexturedRect(iconStart + iconPos, bottomPos - iconSize, iconSize, iconSize)
         surface.SetDrawColor(TransGrey)
         surface.SetMaterial(Material(bgTable[i]))
@@ -90,7 +94,7 @@ end
 
 function drawMinimap()
     local size = 160
-    surface.SetMaterial(Material("icons/minimap"))
+    surface.SetMaterial(mat_minimap)
     surface.SetDrawColor(TransGreen)
     surface.DrawTexturedRectRotated(ScrW() - size * 0.5, size * 0.5, size, size, LocalPlayer():GetAngles().y)
     draw.DrawText("Coming Soon!", "ChatFont", ScrW() - size * 0.5, size * 0.45, Color(255, 255, 255, 150), TEXT_ALIGN_CENTER)
@@ -136,46 +140,45 @@ end
 function drawPlayerHUD_New()
     local sprintSize = 30
     local size = 150
-    local x = 0
-    local y = ScrH() - size - 5
+    local x, y = 0, ScrH() - size - 5
     if not LocalPlayer().Hunger then LocalPlayer().Hunger = 100 end
     if not LocalPlayer().Thirst then LocalPlayer().Thirst = 100 end
     if not LocalPlayer().Stamina then LocalPlayer().Stamina = 100 end
-    surface.SetMaterial(Material("icons/hungerthirst"))
+    surface.SetMaterial(mat_hungerthirst)
     surface.SetDrawColor(Color(0, 0, 0, 100))
     surface.DrawTexturedRectUV(x, y, size, size, 0, 0, 1, 1)
-    surface.SetMaterial(Material("icons/character_icons"))
+    surface.SetMaterial(mat_char_icons)
     surface.SetDrawColor(Color(255, 255, 255, 255))
     surface.DrawTexturedRectUV(x, y, size, size, 0, 0, 1, 1)
-    surface.SetMaterial(Material("icons/character_sprint"))
+    surface.SetMaterial(mat_char_sprint)
     surface.SetDrawColor(Color(0, 0, 0, 100))
     surface.DrawTexturedRectUV(x + size * 0.5 - sprintSize * 0.3, y - sprintSize * 0.8, sprintSize, sprintSize, 0, 0, 1, 1)
     local sprintPercent = LocalPlayer().Stamina * 0.01
     local sprintDist = sprintSize - (sprintPercent * sprintSize)
-    surface.SetMaterial(Material("icons/character_sprint"))
+    surface.SetMaterial(mat_char_sprint)
     surface.SetDrawColor(Color(255, 255, 255, 255))
     surface.DrawTexturedRectUV(x + size * 0.5 - sprintSize * 0.3, y - sprintSize * 0.8 + sprintDist, sprintSize, sprintSize - sprintDist, 0, 1 - sprintPercent, 1, 1)
     local hungerPercent = math.Clamp(((LocalPlayer().Hunger * 0.01) + 0.21) * 0.75, 0, 1)
     local hungerDist = size - (hungerPercent * size)
-    surface.SetMaterial(Material("icons/hungerleft"))
+    surface.SetMaterial(mat_hunger_left)
     surface.SetDrawColor(Color(255, 255, 255, 255))
     surface.DrawTexturedRectUV(x, y + hungerDist, size, size - hungerDist, 0, 1 - hungerPercent, 1, 1)
     local thirstPercent = math.Clamp(((LocalPlayer().Thirst * 0.01) + 0.21) * 0.75, 0, 1)
     local thirstDist = size - (thirstPercent * size)
-    surface.SetMaterial(Material("icons/thirstright"))
+    surface.SetMaterial(mat_thirst_right)
     surface.SetDrawColor(Color(255, 255, 255, 255))
     surface.DrawTexturedRectUV(x, y + thirstDist, size, size - thirstDist, 0, 1 - thirstPercent, 1, 1)
-    surface.SetMaterial(Material("icons/character_inside"))
+    surface.SetMaterial(mat_char_inside)
     surface.SetDrawColor(Color(50, 0, 0, 200))
     surface.DrawTexturedRectUV(x, y, size, size, 0, 0, 1, 1)
     local alp = 255
     if LocalPlayer():Health() < 25 then alp = math.abs(math.sin(CurTime())) * 255 + 25 end
     local healthPercent = LocalPlayer():Health() * 0.01
     local healthDist = size - (healthPercent * size)
-    surface.SetMaterial(Material("icons/character_inside"))
+    surface.SetMaterial(mat_char_inside)
     surface.SetDrawColor(Color(185, 90, 90, alp))
     surface.DrawTexturedRectUV(x, y + healthDist, size, size - healthDist, 0, 1 - healthPercent, 1, 1)
-    surface.SetMaterial(Material("icons/character_border"))
+    surface.SetMaterial(mat_char_border)
     surface.SetDrawColor(Color(255, 255, 255, 255))
     surface.DrawTexturedRectUV(x, y, size, size, 0, 0, 1, 1)
 end
@@ -185,9 +188,7 @@ local dzHelp = CreateClientConVar("dz_showsafezone", 1, true, false, "Choose to 
 local dzMini = CreateClientConVar("dz_minimap", 0, true, false, "Choose to show the Minimap (BROKEN)")
 function drawPlayerHud()
     local SW, SH = ScrW(), ScrH()
-    local halfSW = SW * 0.5
-    local halfSH = SH * 0.5
-    local fifthSH = SH * 0.08
+    local halfSW, halfSH, fifthSH = SW * 0.5, SH * 0.5, SH * 0.08
     drawAmmo()
     playerGroupNames()
     if dzMini:GetBool() then drawMinimap() end
@@ -205,7 +206,7 @@ function drawPlayerHud()
     LocalPlayer():inSafeZone()
     if (LocalPlayer().InSafeZone and LocalPlayer().ScoreBoard == false) and (not DFrame_ShopMenu or not DFrame_ShopMenu:IsValid()) then
         draw.RoundedBox(10, halfSW - halfSafeZoneW, fifthSH - halfSafeZoneH, SafeZoneW, SafeZoneH, Color(0, 0, 0, 180))
-        surface.SetMaterial(Material("icons/background_cracks"))
+        surface.SetMaterial(mat_background_cracks)
         surface.SetDrawColor(Color(0, 0, 0, 255))
         surface.DrawTexturedRectUV(halfSW - halfSafeZoneW, fifthSH - halfSafeZoneH, SafeZoneW, SafeZoneH, 0, 0, SafeZoneW * 0.002, SafeZoneH * 0.002)
         surface.SetDrawColor(Color(255, 255, 255, 255))
@@ -224,8 +225,8 @@ function drawPlayerHud()
     if LocalPlayer():InVehicle() then
         draw.DrawText("Fuel: "..math.Round(LocalPlayer():GetVehicle():GetNWInt("fuel")) .. "%", "Trebuchet24", halfSW - 75, ScrH() - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
         draw.DrawText("Health: "..math.Round(LocalPlayer():GetVehicle():Health()) .. " %", "Trebuchet24", halfSW + 75, ScrH() - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
-        draw.RoundedBox(10, halfSW - 154, SH - 25, 153, 50, Color(0, 0, 0, 155)) -- Fuel Tank Box
-        draw.RoundedBox(10, halfSW + 1, SH - 25, 152, 50, Color(0, 0, 0, 155)) -- Speed Box
+        draw.RoundedBox(10, halfSW - 154, SH - 25, 153, 50, Color(0, 0, 0, 155))
+        draw.RoundedBox(10, halfSW + 1, SH - 25, 152, 50, Color(0, 0, 0, 155))
     end
     local localTrace = LocalPlayer():GetEyeTrace()
     local trEntity = localTrace.Entity
@@ -250,7 +251,7 @@ function drawPlayerHud()
     end
     if LocalPlayer().InSafeZone then
         if LocalPlayer().Money then
-            surface.SetMaterial(Material("icons/background_cracks"))
+            surface.SetMaterial(mat_background_cracks)
             surface.SetDrawColor(Color(0, 0, 0, 230))
             surface.DrawTexturedRectUV(SW - 300, SH - 30, 300, 40, 0, 0, 0.3, 0.04)
             draw.DrawText("$"..LocalPlayer().Money, "TargetIDMedium", SW - 250, SH - 25, Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
@@ -362,15 +363,13 @@ function DrawPickups()
     local traceRes = LocalPlayer():GetEyeTrace()
     local trace = util.TraceLine(traceRes)
     local dropTypes = {}
-    dropTypes["base_item"] = {"PRESS 'E' TO PICKUP ITEM"}
-    dropTypes["money"] = {"PRESS 'E' TO PICKUP MONEY", "MONEY"}
-    dropTypes["backpack"] = {"PRESS 'E' TO LOOT BACKPACK", "BACKPACK"}
-    dropTypes["bank"] = {"PRESS 'E' TO ACCESS BANK", "SAFE ZONE BANK"}
-    if UseNewShop then
-        dropTypes["shop"] = {"PRESS 'E' TO ACCESS SHOP", "SAFE ZONE SHOP"}
-    end
-    dropTypes["player"] = {"PRESS 'E' TO TRADE", "TRADE"}
-    dropTypes["airdrop_crate"] = {"PRESS 'E' TO LOOT AIRDROP", "AIRDROP CRATE"}
+    dropTypes["base_item"] = {"PRESS [E] TO PICKUP"}
+    dropTypes["money"] = {"PRESS [E] TO PICKUP MONEY", "MONEY"}
+    dropTypes["backpack"] = {"PRESS [E] TO LOOT BACKPACK", "BACKPACK"}
+    dropTypes["bank"] = {"PRESS [E] TO ACCESS BANK", "SAFE ZONE BANK"}
+    if UseNewShop then dropTypes["shop"] = {"PRESS [E] TO ACCESS SHOP", "SAFE ZONE SHOP"} end
+    dropTypes["player"] = {"PRESS [E] TO TRADE", "TRADE"}
+    dropTypes["airdrop_crate"] = {"PRESS [E] TO LOOT AIRDROP", "AIRDROP CRATE"}
     if traceRes.HitPos and LocalPlayer():Alive() then
         for _, ent in pairs(ents.FindInSphere(traceRes.HitPos, 15)) do
             if ent and ent:IsValid() and (ent:GetPos() - LocalPlayer():GetPos()):Length() < 80 then
@@ -385,17 +384,17 @@ function DrawPickups()
                         local itemName = string.lower(ent:GetModel())
                         if ent.ItemID then pickupMsg = string.upper(DayZItems[ent.ItemID].Name) end
                     end
-                    surface.SetMaterial(Material("icons/background_cracks"))
+                    surface.SetMaterial(mat_background_cracks)
                     surface.SetDrawColor(Color(0, 0, 0, 200))
-                    surface.DrawTexturedRectUV(screenPos.x + 40, screenPos.y - 40, 220, 25, 0, 0, 0.22, 0.025)
-                    surface.SetMaterial(Material("icons/background_cracks"))
+                    surface.DrawTexturedRectUV(screenPos.x + 20, screenPos.y - 40, 220, 25, 0, 0, 0.22, 0.025)
+                    surface.SetMaterial(mat_background_cracks)
                     surface.SetDrawColor(Color(0, 0, 0, 200))
-                    surface.DrawTexturedRectUV(screenPos.x + 40, screenPos.y - 10, 220, 25, 0, 0, 0.22, 0.05)
-                    draw.DrawText(pickupMsg, "ChatFont", screenPos.x + 40, screenPos.y - 40, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
-                    draw.DrawText(dropTypes[class][1], "ChatFont", screenPos.x + 40, screenPos.y - 10, Color(182, 87, 93, 255), TEXT_ALIGN_LEFT)
+                    surface.DrawTexturedRectUV(screenPos.x + 20, screenPos.y - 10, 220, 25, 0, 0, 0.22, 0.05)
+                    draw.DrawText(pickupMsg, "ChatFont", screenPos.x + 40, screenPos.y - 10, Color(255, 255, 255, 255), TEXT_ALIGN_LEFT)
+                    draw.DrawText(dropTypes[class][1], "ChatFont", screenPos.x + 40, screenPos.y - 40, Color(182, 87, 93, 255), TEXT_ALIGN_LEFT)
                     surface.SetDrawColor(255, 255, 255, 255)
-                    surface.SetMaterial(Material("icons/pickup"))
-                    surface.DrawTexturedRect(screenPos.x - 35, screenPos.y - 30, 64, 64)
+                    surface.SetMaterial(mat_pickup)
+                    surface.DrawTexturedRect(screenPos.x - 45, screenPos.y - 45, 64, 64)
                 end
             end
         end
@@ -429,6 +428,7 @@ net.Receive("sendXP", function(len)
     LocalPlayer().Credits = net.ReadUInt(16)
 end)
 
+PlayerPerks = PlayerPerks or {}
 net.Receive("UpdatePerks", function(len)
     for i = 1, table.Count(DayZShop["shop_perks"]) do PlayerPerks[i] = numberToBool(net.ReadBit()) end
 end)
@@ -444,8 +444,7 @@ hook.Add("HUDPaint", "DrawHitIndicator", function()
     if HitIndicatorAlpha <= 0 then return end
     if LocalPlayer().HitIndicatorTime and LocalPlayer().HitIndicatorTime < CurTime() then HitIndicatorAlpha = HitIndicatorAlpha - FrameTime() * 600 end
     if HitIndicatorAlpha > 0 then
-        local x = ScrW() * 0.5
-        local y = ScrH() * 0.5
+        local x, y= ScrW() * 0.5, ScrH() * 0.5
         local Lenght = 21 * (HitIndicatorAlpha / 255)
         Lenght = math.Clamp(Lenght, 8, Lenght)
         local Size = 7
