@@ -8,7 +8,7 @@ local Money_Amount = 0
 function HINTPaint()
     if LocalPlayer():IsValid() then
         if itemPlacer then
-            draw.DrawText("Press LMB to place or RMB to remove", "Trebuchet24", ScrW() / 2, (ScrH() * 0.8), Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
+            draw.DrawText("Press LEFT MOUSE to place or RIGHT MOUSE to remove", "Trebuchet24", ScrW() / 2, (ScrH() * 0.8), Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
             draw.DrawText("Press R to rotate", "Trebuchet24", ScrW() / 2, (ScrH() * 0.8 + 30), Color(255, 255, 255, 255), TEXT_ALIGN_CENTER)
         end
         if XpAddInc == true then
@@ -32,7 +32,7 @@ function HINTPaint()
         surface.SetMaterial(Material("icons/background_cracks"))
         surface.SetDrawColor(Color(0, 0, 0, MoneyPos * 0.8))
         surface.DrawTexturedRectUV(x, y, w, h, 0, 0, w * 0.001, h * 0.001)
-        draw.DrawText("$"..Money_Amount.." picked up", "Trebuchet24", 25, (ScrH() / 1.5) + 6, Color(255, 255, 255, MoneyPos), TEXT_ALIGN_LEFT)
+        draw.DrawText("You picked up $"..Money_Amount, "Trebuchet24", 25, (ScrH() / 1.5) + 6, Color(255, 255, 255, MoneyPos), TEXT_ALIGN_LEFT)
     end
 end
 hook.Add("HUDPaint", "PaintOurHint", HINTPaint)
