@@ -70,9 +70,7 @@ concommand.Add('dz_GiveItem', DZ_GiveItem)
 
 function DZ_TeleportToPlayer(admin, cmd, args)
     if admin:IsDayZAdmin() then
-        if admin:Alive() then
-            admin:SetPos(Player(args[1]):GetPos() + Vector(52, 52, 2))
-        end
+        if admin:Alive() then admin:SetPos(Player(args[1]):GetPos() + Vector(52, 52, 2)) end
     end
 end
 concommand.Add('dz_TeleportToPlayer', DZ_TeleportToPlayer)
