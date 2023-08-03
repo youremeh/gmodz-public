@@ -22,13 +22,13 @@ function GM:HUDDrawScoreboard()
     DPanel_Scoreboard:SetWide(800)
     DPanel_Scoreboard:Center()
     DPanel_Scoreboard:SetVisible(true)
-    DPanel_Scoreboard.Paint = function() draw.DrawText("", "ScoreboardContent", 425, 0, Color(200, 200, 200, 150), TEXT_ALIGN_RIGHT) end
+    DPanel_Scoreboard.Paint = function() draw.DrawText("Community Name - scoreboard.lua - line 25", "ScoreboardHeaderNoLines", 0, 0, Color(200, 200, 200, 255), TEXT_ALIGN_LEFT) end
     local DPanelList_Players = vgui.Create("DPanelList", DPanel_Scoreboard)
-    DPanelList_Players:SetPos(0, 15)
+    DPanelList_Players:SetPos(0, 35)
     DPanelList_Players:SetTall(640)
     DPanelList_Players:SetWide(800)
     DPanelList_Players.Paint = function() end
-    DPanelList_Players:SetSpacing(1)
+    DPanelList_Players:SetSpacing(5)
     DPanelList_Players:EnableHorizontal(true)
     DPanelList_Players:EnableVerticalScrollbar(true)
     for _, ply in pairs(player.GetAll()) do
@@ -58,7 +58,7 @@ function GM:HUDDrawScoreboard()
                     draw.RoundedBox(10, 0, 0, 1, 35, Color(0, 220, 255, 255))
                     draw.RoundedBox(10, 389, 0, 1, 35, Color(0, 220, 255, 255))
                 end
-                draw.RoundedBox(10, 9, 1, 34, 34, PlayerRank[pLevel].Clr)
+                draw.RoundedBox(0, 7, 0, 38, 38, PlayerRank[pLevel].Clr)
                 if (ply and ply:IsValid()) then
                     if ply:Ping() < 100 then
                         draw.RoundedBox(10, 50, 28, 4, 4, Color(0, 255, 0, 255))
@@ -157,7 +157,7 @@ function GM:HUDDrawScoreboard()
             end
             local AvatarImage_Player = vgui.Create("AvatarImage", DButton_Player)
             AvatarImage_Player:SetPos(10, 2)
-            AvatarImage_Player:SetSize(32, 32)
+            AvatarImage_Player:SetSize(32, 31)
             AvatarImage_Player:SetPlayer(ply)
             local DLabel_Name = vgui.Create("DLabel", DButton_Player)
             DLabel_Name:SetPos(50, 0)
@@ -170,14 +170,15 @@ function GM:HUDDrawScoreboard()
                 if (ply and ply:IsValid()) then surface.DrawText(ply:Nick()) end
             end
             local DLabel_pLevel = vgui.Create("DLabel", DButton_Player)
-            DLabel_pLevel:SetPos(280, 20)
+            DLabel_pLevel:SetPos(280, 5)
             DLabel_pLevel:SetFont("ScoreboardContent")
-            DLabel_pLevel:SetSize(200, 10)
+            DLabel_pLevel:SetSize(200, 40)
             DLabel_pLevel:SetText(PlayerRank[pLevel].Name)
             DLabel_pLevel:SetColor(PlayerRank[pLevel].Clr)
             if PlayerTitle[plySteamID] then
-                DLabel_pLevel:SetPos(280, 20)
                 DLabel_pLevel:SetText(PlayerTitle[plySteamID])
+            else
+                DLabel_pLevel:SetText(PlayerRank[ply:GetNWInt("plevel")].Name)
             end
             local DLabel_Ping = vgui.Create("DLabel", DButton_Player)
             DLabel_Ping:SetPos(70, 18)
@@ -186,7 +187,7 @@ function GM:HUDDrawScoreboard()
             if LocalPlayer():IsAdmin() then
                 DLabel_Ping:SetText(ply:Ping() .. "ms | " .. "Kills: "..ply:GetNWInt("kills") .. " | Access: "..pLevel)
             else
-                DLabel_Ping:SetText(ply:Ping() .. "ms | " .. "Kills: "..ply:GetNWInt("kills"))--" | Access Level: "..pLevel)
+                DLabel_Ping:SetText(ply:Ping() .. "ms | " .. "Kills: "..ply:GetNWInt("kills"))
             end
             DLabel_Ping:SizeToContents()
             local DLabel_BanditStatus = vgui.Create("DLabel", DButton_Player)
