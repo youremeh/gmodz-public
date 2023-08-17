@@ -1,5 +1,4 @@
 include('shared.lua')
-include('config.lua')
 include('scripts/client/inventory.lua')
 include('scripts/client/mainmenu.lua')
 include('scripts/client/hud.lua')
