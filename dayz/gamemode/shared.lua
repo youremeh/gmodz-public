@@ -1,7 +1,7 @@
 GM.Name = "GMod-Z"
 GM.Author = "youremeh @ GitHub"
 GM.Email = "N/A"
-GM.Website = "https://discord.gg/HJEBugJ4aA"
+GM.Website = "N/A"
 
 team.SetUp(1, "Survivor", Color(0, 0, 0, 80))
 
